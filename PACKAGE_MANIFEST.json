@@ -1,0 +1,152 @@
+{
+  "skill": "kzhc-bid-assistant",
+  "version": "0.2.3",
+  "bidder_name": "四川省科智汇川人工智能科技有限责任公司",
+  "source_mode": "REAL_INPUT（金样例来源为公开政府采购文件，原件未随包分发）",
+  "files": [
+    {
+      "path": "examples/_regression_v0.1.0_should_fail/README.md",
+      "size": 1952,
+      "sha256": "1b25e88d78d828fe27c2d8b079c09cba434aa074199efa1983ece42b3fc144d0"
+    },
+    {
+      "path": "examples/_regression_v0.1.0_should_fail/source_fingerprint.json",
+      "size": 6399,
+      "sha256": "d0af92dfbc19b7c86b8845a838dfeb5497b2fcd1b2b8f585094cb72d31fa7c58"
+    },
+    {
+      "path": "examples/_regression_v0.1.0_should_fail/tender_brief.json",
+      "size": 129434,
+      "sha256": "4d963333c1db9d2ffae06dbf67a0950a851d8ee69b8f979397eed874710920db"
+    },
+    {
+      "path": "examples/_regression_v0.1.0_should_fail/tender_raw.docx.txt",
+      "size": 120029,
+      "sha256": "864f9efa4cdc81ae4d389b561e1a8a0738daed4e2257de1134ff3cc327e1093f"
+    },
+    {
+      "path": "examples/四川铁道职院AI课程建设_20261010/bid_plan.json",
+      "size": 25258,
+      "sha256": "9d332f569cd200966a11c82f34527aa5d4a557c54438fa1f99fc7c9d7e2bc433"
+    },
+    {
+      "path": "examples/四川铁道职院AI课程建设_20261010/format_diff.json",
+      "size": 941,
+      "sha256": "516d1bcc11d7a8c89be634ae0e1c67163340bed8816d396be3d9b72b87262929"
+    },
+    {
+      "path": "examples/四川铁道职院AI课程建设_20261010/material_checklist.json",
+      "size": 69447,
+      "sha256": "fb8309d425837dc380f68ab0b9557696c7ab4ef0266fd952e03bd93a7101ee87"
+    },
+    {
+      "path": "examples/四川铁道职院AI课程建设_20261010/README.md",
+      "size": 7711,
+      "sha256": "c807af83d628be91d02b78ad42492ee57076d987d42b7115660ca96712de5b98"
+    },
+    {
+      "path": "examples/四川铁道职院AI课程建设_20261010/source_fingerprint.json",
+      "size": 6399,
+      "sha256": "d0af92dfbc19b7c86b8845a838dfeb5497b2fcd1b2b8f585094cb72d31fa7c58"
+    },
+    {
+      "path": "examples/四川铁道职院AI课程建设_20261010/tender_brief.json",
+      "size": 177922,
+      "sha256": "eb2a53d04479c2dbe1ba91d15b2619743d866e841b02d8e35d111d280af236f1"
+    },
+    {
+      "path": "examples/四川铁道职院AI课程建设_20261010/tender_raw.docx.txt",
+      "size": 120029,
+      "sha256": "864f9efa4cdc81ae4d389b561e1a8a0738daed4e2257de1134ff3cc327e1093f"
+    },
+    {
+      "path": "examples/四川铁道职院AI课程建设_20261010/回归验证证据.txt",
+      "size": 7466,
+      "sha256": "06d9aa7ea87e3098a064ed6e06b0bf705b961805ce84734c3317536c5c5dec61"
+    },
+    {
+      "path": "examples/四川铁道职院AI课程建设_20261010/投标方案建议书.md",
+      "size": 15713,
+      "sha256": "98e0f3b9d2bd415cffde029c7d4e39999a5c0ded93e55ce7ef17cc963c1d8f11"
+    },
+    {
+      "path": "examples/四川铁道职院AI课程建设_20261010/资料缺口与补齐清单.md",
+      "size": 24098,
+      "sha256": "c7e50b578c371d1b35423270407b5c9bae7e9dcfb7845dcf18399be259028a36"
+    },
+    {
+      "path": "references/company-profile-guide.md",
+      "size": 3590,
+      "sha256": "41a416ffbeb6948c360d19714f0de78c54661ee0c36aa1702b0147b05af7f13e"
+    },
+    {
+      "path": "references/interface-and-checks.md",
+      "size": 7367,
+      "sha256": "2f624fcbef244016282ac55cbbbde4f700726b937a9a27f2da890fe813714b2b"
+    },
+    {
+      "path": "references/runbook.md",
+      "size": 6916,
+      "sha256": "fb67339f05e96ff8685e601512bea53623d6ff57ddca938561890911534b9800"
+    },
+    {
+      "path": "references/severity-symbols.md",
+      "size": 6428,
+      "sha256": "970c523f6473edade3ab851166c2aa12b58a58cf56eb0c7eb321def06e9ee611"
+    },
+    {
+      "path": "schema/envelope.schema.json",
+      "size": 2666,
+      "sha256": "13581e347d6976afb73c2038e5d72511fe29d2565b60c86339511bddeb53cb3e"
+    },
+    {
+      "path": "schema/module.schema.json",
+      "size": 10718,
+      "sha256": "7871207952162fdb4affb5247ba4d2ae0c01433096ede335af26b7157f2cdec3"
+    },
+    {
+      "path": "scripts/build_plan.py",
+      "size": 19438,
+      "sha256": "5154a03183da1684d4fd28f6c14df22153054ccc18df31f2d401be69c93f54c5"
+    },
+    {
+      "path": "scripts/check_materials.py",
+      "size": 27953,
+      "sha256": "e64e39e336ced9f0d9967322b8ee6b458f7503407c8d1f5aa7c6255568071388"
+    },
+    {
+      "path": "scripts/extract_tender.py",
+      "size": 8619,
+      "sha256": "c32530f2d94174b18a3260953f5ced0f023f2a971c1e914e3c0c3c6fe6444c50"
+    },
+    {
+      "path": "scripts/self_test.py",
+      "size": 8392,
+      "sha256": "807830c6f5b20af99b81279eb1535fc6122838514d4705da3e878366138a1e9f"
+    },
+    {
+      "path": "scripts/validate.py",
+      "size": 21666,
+      "sha256": "1ff29786c5237cdea1d6e33880053cf0efdb508f49b6077487bbcaf8be051255"
+    },
+    {
+      "path": "SKILL.md",
+      "size": 11164,
+      "sha256": "01bb905b392e72bbc15562dd9172f6d68d39f2dc8f96e58022766c820c7d850f"
+    },
+    {
+      "path": "templates/company_profile.template.yaml",
+      "size": 3080,
+      "sha256": "9f896e15caf062923d5621c084d3a2df095b0059a004719a9d955086400d1050"
+    }
+  ],
+  "changelog": {
+    "0.2.0": "修复六类真实缺陷：①★实质性条款漏拆（27条中漏26条）②已拆条目丢符号 ③locator 指向未随包分发的另一份抽取文件导致溯源断裂 ④校验器只做产出内部自洽、无覆盖度证据 ⑤issue 内含未经核实的行号 ⑥交付数量语义错判（裸数量判为 None、括号内单件约束被当主数量）。新增 R15 符号覆盖台账（源文本↔产出逐行对账）与 R16 locator 可回指源文本；新增 schema coverage_ledger；self_test 注入用例 12→17 类（基线 15/15→20/20）；新增对照样本 examples/_regression_v0.1.0_should_fail/。六类修正详见 examples/…/README.md 的「v0.2.0 修正记录」。",
+    "0.1.1": "新增 scripts/self_test.py（校验器元验证，12 类错误注入）与 examples/回归验证证据；SKILL.md 与 interface-and-checks.md 补入 self_test 强制复跑规则。",
+    "0.1.0": "首版：S1/S2/S3 三段式投标作业，含契约校验、业务规则校验与真实磋商文件金样例。",
+    "0.2.1": "SKILL.md 新增「对外文档引用的数字」一节：引用本 skill 数字的对外材料必须标注采集时间与核对命令，skill 改动后一律视为过期。起因：答辩手册初稿在 skill v0.1.1→v0.2.0 之间 8 处数字全部失效而未被察觉。",
+    "0.2.2": "经 skill-creator 规范复核与全量数字对账：修正 4 处失效数字——SKILL.md 自测基线 15/15→20/20、★ 漏拆口径 29/28→27/26（源 ★ 共 30 处）；runbook.md 与 company-profile-guide.md 的 S2 阴性对照计数 missing 88→96、review 15→24、gate_missing 40→48、要求条数 103→120。SKILL.md 新增「包结构」目录地图。",
+    "0.2.3": "runbook.md 新增「0.5 环境准备」：脚本依赖 pypdf / python-docx，无依赖的 python 跑抽取时 docx 仍能成功、仅 pdf 报 ModuleNotFoundError，产物会静默少一份 pdf 指纹而使 format_diff 的“docx 与 pdf 均已抽取”成为空话；补入先行自检命令与托管虚拟环境路径，并声明本文档内 python 一律替换为 \"$PY\"。纯文档补充，未改动脚本、schema 与校验规则。"
+  },
+  "built_with": "skill-creator (workbuddy-builtin)"
+}

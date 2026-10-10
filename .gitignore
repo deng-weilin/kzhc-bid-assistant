@@ -1,0 +1,32 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+venv/
+.venv/
+
+# ---- 运行产物（不入库：这些都是可复现的中间结果）----
+output/
+out/
+*.log
+
+# ---- 输入原件（招标文件原件不随包分发）----
+input/
+
+# ---- 真实公司资料（含资质/业绩/财务，绝不入库）----
+company_profile.yaml
+company_profile.yml
+materials/
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- 凭证（安全兜底）----
+.env
+*.pem
+*.key
+credentials.json

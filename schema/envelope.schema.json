@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://workbuddy.local/schemas/kzhc.bid-ops.v1/envelope.schema.json",
+  "title": "科智汇川投标助手统一交接信封",
+  "description": "与 anmeiqin.bid-production.v1 信封结构对齐，便于与既有 T1-T4 链互操作；差异见 references/interface-and-checks.md 的映射表。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "module", "run_id", "project_id", "bidder_name", "source_mode", "input_refs", "processing_status", "issues", "data", "next_actions"],
+  "properties": {
+    "schema_version": {"const": "kzhc.bid-ops.v1"},
+    "module": {"enum": ["S1", "S2", "S3"]},
+    "run_id": {"type": "string", "minLength": 1},
+    "project_id": {"type": "string", "minLength": 1},
+    "bidder_name": {"const": "四川省科智汇川人工智能科技有限责任公司"},
+    "source_mode": {"enum": ["DEMO", "REAL_INPUT", "MIXED_DEMO"]},
+    "input_refs": {"type": "array", "items": {"$ref": "#/$defs/input_ref"}},
+    "processing_status": {"enum": ["COMPLETE", "REVIEW", "BLOCKED"]},
+    "issues": {"type": "array", "items": {"$ref": "#/$defs/issue"}},
+    "data": {"type": "object"},
+    "next_actions": {"type": "array", "items": {"$ref": "#/$defs/next_action"}}
+  },
+  "$defs": {
+    "input_ref": {
+      "type": "object",
+      "required": ["source_id", "file_name", "relative_path", "kind", "origin", "sha256", "version"],
+      "properties": {
+        "source_id": {"type": "string"},
+        "file_name": {"type": "string"},
+        "relative_path": {"type": "string"},
+        "kind": {"type": "string"},
+        "origin": {"type": "string"},
+        "sha256": {"type": ["string", "null"]},
+        "version": {"type": ["string", "null"]}
+      }
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message", "source_ref", "owner", "action"],
+      "properties": {
+        "code": {"type": "string"},
+        "message": {"type": "string"},
+        "source_ref": {"type": "string"},
+        "owner": {"type": "string"},
+        "action": {"type": "string"}
+      }
+    },
+    "next_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "owner"],
+      "properties": {"action": {"type": "string"}, "owner": {"type": "string"}}
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "locator", "quote"],
+      "properties": {
+        "source_id": {"type": "string"},
+        "locator": {"type": "string"},
+        "quote": {"type": "string"}
+      }
+    }
+  }
+}

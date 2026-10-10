@@ -1,0 +1,1884 @@
+{
+  "schema_version": "kzhc.bid-ops.v1",
+  "module": "S2",
+  "run_id": "KZHC-20261010-S2-001",
+  "project_id": "N5100012026002044",
+  "bidder_name": "四川省科智汇川人工智能科技有限责任公司",
+  "source_mode": "REAL_INPUT",
+  "input_refs": [
+    {
+      "source_id": "SRC-BRIEF",
+      "file_name": "tender_brief.json",
+      "relative_path": "tender_brief.json",
+      "kind": "tender_brief",
+      "origin": "S1 output",
+      "sha256": "eb2a53d04479c2dbe1ba91d15b2619743d866e841b02d8e35d111d280af236f1",
+      "version": "kzhc.bid-ops.v1"
+    }
+  ],
+  "processing_status": "REVIEW",
+  "issues": [
+    {
+      "code": "GATE_MATERIAL_MISSING",
+      "message": "48 条准入级要求（mandatory / ★）对应的资料缺失或过期，按现状投标存在废标风险。",
+      "source_ref": "data.items（severity=GATE 且 status∈{MISSING,EXPIRED}）",
+      "owner": "投标负责人",
+      "action": "逐条补齐准入级材料或评估放弃投标；不得以其他材料类比替代。"
+    },
+    {
+      "code": "EMPTY_MATERIAL_LIBRARY",
+      "message": "资料库为空，本次核对结果为阴性对照（全部缺失），不代表本公司真实缺口。",
+      "source_ref": "C:/Users/Administrator/WorkBuddy/2026-10-10-14-35-02/kzhc-bid/materials",
+      "owner": "投标负责人",
+      "action": "放入真实材料后重跑本步骤。"
+    },
+    {
+      "code": "PROFILE_NOT_FILLED",
+      "message": "company_profile.yaml 已解析但几乎无有效内容（仅主体名称），所有依赖公司资质的条目均判为缺失。",
+      "source_ref": "C:/Users/Administrator/WorkBuddy/2026-10-10-14-35-02/kzhc-bid/company_profile.yaml",
+      "owner": "投标负责人",
+      "action": "按 references/company-profile-guide.md 逐项如实填报，并附证明材料文件名。"
+    }
+  ],
+  "data": {
+    "profile_ref": {
+      "path": "C:/Users/Administrator/WorkBuddy/2026-10-10-14-35-02/kzhc-bid/company_profile.yaml",
+      "loaded": true,
+      "filled_field_count": 1,
+      "identity_company_name": "四川省科智汇川人工智能科技有限责任公司",
+      "filled_by": null
+    },
+    "materials_scanned": [
+      {
+        "path": "C:/Users/Administrator/WorkBuddy/2026-10-10-14-35-02/kzhc-bid/materials",
+        "file_count": 0
+      }
+    ],
+    "material_index": [],
+    "items": [
+      {
+        "material_id": "MATREQ-001",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-001"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-002",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-002"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-003",
+        "material_name": "财务与审计材料",
+        "material_type": "FINANCIAL_AUDIT",
+        "matched_requirement_ids": [
+          "REQ-003"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.financials 未填报或未附审计报告",
+        "gap_detail": "准备近三年财务审计报告或财务报表，登记年度与关键指标",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-004",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-004"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-005",
+        "material_name": "财务与审计材料",
+        "material_type": "FINANCIAL_AUDIT",
+        "matched_requirement_ids": [
+          "REQ-005"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.financials 未填报或未附审计报告",
+        "gap_detail": "准备近三年财务审计报告或财务报表，登记年度与关键指标",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-006",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-006"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-007",
+        "material_name": "资质认证证书",
+        "material_type": "QUALIFICATION_CERT",
+        "matched_requirement_ids": [
+          "REQ-007"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.qualifications 为空",
+        "gap_detail": "梳理本公司全部资质证书，逐项登记名称、编号、发证机关、有效期",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-008",
+        "material_name": "资质认证证书",
+        "material_type": "QUALIFICATION_CERT",
+        "matched_requirement_ids": [
+          "REQ-008"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.qualifications 为空",
+        "gap_detail": "梳理本公司全部资质证书，逐项登记名称、编号、发证机关、有效期",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-009",
+        "material_name": "承诺函/声明/授权书",
+        "material_type": "COMMITMENT",
+        "matched_requirement_ids": [
+          "REQ-009"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "资料目录无承诺函类文件",
+        "gap_detail": "按招标文件格式要求起草承诺函（格式类材料通常可自制），需法定代表人签署并盖章",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-010",
+        "material_name": "资质认证证书",
+        "material_type": "QUALIFICATION_CERT",
+        "matched_requirement_ids": [
+          "REQ-010"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.qualifications 为空",
+        "gap_detail": "梳理本公司全部资质证书，逐项登记名称、编号、发证机关、有效期",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-011",
+        "material_name": "资质认证证书",
+        "material_type": "QUALIFICATION_CERT",
+        "matched_requirement_ids": [
+          "REQ-011"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.qualifications 为空",
+        "gap_detail": "梳理本公司全部资质证书，逐项登记名称、编号、发证机关、有效期",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-012",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-012"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-013",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-013"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-014",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-014"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-015",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-015"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-016",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-016"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-017",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-017"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-018",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-018"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-019",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-019"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-020",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-020"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-021",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-021"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-022",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-022"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-023",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-023"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-024",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-024"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-025",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-025"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-026",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-026"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-027",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-027"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-028",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-028"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-029",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-029"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-030",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-030"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-031",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-031"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-032",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-032"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-033",
+        "material_name": "人员与执业资格材料",
+        "material_type": "PERSONNEL",
+        "matched_requirement_ids": [
+          "REQ-033"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.personnel 为空",
+        "gap_detail": "确定拟投入人员名单，登记姓名/角色/职称/证书编号/社保月数",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-034",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-034"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-035",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-035"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-036",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-036"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-037",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-037"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-038",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-038"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-039",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-039"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "NORMAL",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-040",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-040"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "NORMAL",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-041",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-041"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-042",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-042"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-043",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-043"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-044",
+        "material_name": "业绩与类似项目证明",
+        "material_type": "PERFORMANCE",
+        "matched_requirement_ids": [
+          "REQ-044"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.performance 为空",
+        "gap_detail": "整理近三年类似项目业绩，逐项登记并附合同或中标通知书",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-045",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-045"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-046",
+        "material_name": "业绩与类似项目证明",
+        "material_type": "PERFORMANCE",
+        "matched_requirement_ids": [
+          "REQ-046"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.performance 为空",
+        "gap_detail": "整理近三年类似项目业绩，逐项登记并附合同或中标通知书",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-047",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-047"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-048",
+        "material_name": "知识产权与科研成果",
+        "material_type": "IP_ASSET",
+        "matched_requirement_ids": [
+          "REQ-048"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.ip_assets 为空",
+        "gap_detail": "整理软件著作权、专利等知识产权清单及证书扫描件",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-049",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-049"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-050",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-050"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-051",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-051"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-052",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-052"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-053",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-053"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-054",
+        "material_name": "人员与执业资格材料",
+        "material_type": "PERSONNEL",
+        "matched_requirement_ids": [
+          "REQ-054"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.personnel 为空",
+        "gap_detail": "确定拟投入人员名单，登记姓名/角色/职称/证书编号/社保月数",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-055",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-055"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-056",
+        "material_name": "人员与执业资格材料",
+        "material_type": "PERSONNEL",
+        "matched_requirement_ids": [
+          "REQ-056"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.personnel 为空",
+        "gap_detail": "确定拟投入人员名单，登记姓名/角色/职称/证书编号/社保月数",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-057",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-057"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-058",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-058"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-059",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-059"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-060",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-060"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-061",
+        "material_name": "业绩与类似项目证明",
+        "material_type": "PERFORMANCE",
+        "matched_requirement_ids": [
+          "REQ-061"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.performance 为空",
+        "gap_detail": "整理近三年类似项目业绩，逐项登记并附合同或中标通知书",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-062",
+        "material_name": "财务与审计材料",
+        "material_type": "FINANCIAL_AUDIT",
+        "matched_requirement_ids": [
+          "REQ-062"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.financials 未填报或未附审计报告",
+        "gap_detail": "准备近三年财务审计报告或财务报表，登记年度与关键指标",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-063",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-063"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-064",
+        "material_name": "业绩与类似项目证明",
+        "material_type": "PERFORMANCE",
+        "matched_requirement_ids": [
+          "REQ-064"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.performance 为空",
+        "gap_detail": "整理近三年类似项目业绩，逐项登记并附合同或中标通知书",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-065",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-065"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-066",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-066"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-067",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-067"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-068",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-068"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-069",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-069"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-070",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-070"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-071",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-071"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-072",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-072"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-073",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-073"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-074",
+        "material_name": "资质认证证书",
+        "material_type": "QUALIFICATION_CERT",
+        "matched_requirement_ids": [
+          "REQ-074"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "NORMAL",
+        "reason": "profile.qualifications 为空",
+        "gap_detail": "梳理本公司全部资质证书，逐项登记名称、编号、发证机关、有效期",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-075",
+        "material_name": "现场演示/答辩准备",
+        "material_type": "DEMO",
+        "matched_requirement_ids": [
+          "REQ-075"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "无可现场演示的能力项登记",
+        "gap_detail": "确定演示环境与演示脚本，预留演练与设备调试时间",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-076",
+        "material_name": "现场演示/答辩准备",
+        "material_type": "DEMO",
+        "matched_requirement_ids": [
+          "REQ-076"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "无可现场演示的能力项登记",
+        "gap_detail": "确定演示环境与演示脚本，预留演练与设备调试时间",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-077",
+        "material_name": "财务与审计材料",
+        "material_type": "FINANCIAL_AUDIT",
+        "matched_requirement_ids": [
+          "REQ-077"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.financials 未填报或未附审计报告",
+        "gap_detail": "准备近三年财务审计报告或财务报表，登记年度与关键指标",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-078",
+        "material_name": "财务与审计材料",
+        "material_type": "FINANCIAL_AUDIT",
+        "matched_requirement_ids": [
+          "REQ-078"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.financials 未填报或未附审计报告",
+        "gap_detail": "准备近三年财务审计报告或财务报表，登记年度与关键指标",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-079",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-079"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-080",
+        "material_name": "业绩与类似项目证明",
+        "material_type": "PERFORMANCE",
+        "matched_requirement_ids": [
+          "REQ-080"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.performance 为空",
+        "gap_detail": "整理近三年类似项目业绩，逐项登记并附合同或中标通知书",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-081",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-081"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-082",
+        "material_name": "财务与审计材料",
+        "material_type": "FINANCIAL_AUDIT",
+        "matched_requirement_ids": [
+          "REQ-082"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "profile.financials 未填报或未附审计报告",
+        "gap_detail": "准备近三年财务审计报告或财务报表，登记年度与关键指标",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-083",
+        "material_name": "现场演示/答辩准备",
+        "material_type": "DEMO",
+        "matched_requirement_ids": [
+          "REQ-083"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "SCORING",
+        "reason": "无可现场演示的能力项登记",
+        "gap_detail": "确定演示环境与演示脚本，预留演练与设备调试时间",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-084",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-084"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-085",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-085"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-086",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-086"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-087",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-087"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-088",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-088"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-089",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-089"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-090",
+        "material_name": "现场演示/答辩准备",
+        "material_type": "DEMO",
+        "matched_requirement_ids": [
+          "REQ-090"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "无可现场演示的能力项登记",
+        "gap_detail": "确定演示环境与演示脚本，预留演练与设备调试时间",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-091",
+        "material_name": "业绩与类似项目证明",
+        "material_type": "PERFORMANCE",
+        "matched_requirement_ids": [
+          "REQ-091"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.performance 为空",
+        "gap_detail": "整理近三年类似项目业绩，逐项登记并附合同或中标通知书",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-092",
+        "material_name": "业绩与类似项目证明",
+        "material_type": "PERFORMANCE",
+        "matched_requirement_ids": [
+          "REQ-092"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.performance 为空",
+        "gap_detail": "整理近三年类似项目业绩，逐项登记并附合同或中标通知书",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-093",
+        "material_name": "人员与执业资格材料",
+        "material_type": "PERSONNEL",
+        "matched_requirement_ids": [
+          "REQ-093"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.personnel 为空",
+        "gap_detail": "确定拟投入人员名单，登记姓名/角色/职称/证书编号/社保月数",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-094",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-094"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-095",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-095"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-096",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-096"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-097",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-097"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-098",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-098"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-099",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-099"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-100",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-100"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-101",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-101"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-102",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-102"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-103",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-103"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-104",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-104"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-105",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-105"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-106",
+        "material_name": "业绩与类似项目证明",
+        "material_type": "PERFORMANCE",
+        "matched_requirement_ids": [
+          "REQ-106"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.performance 为空",
+        "gap_detail": "整理近三年类似项目业绩，逐项登记并附合同或中标通知书",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-107",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-107"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-108",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-108"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-109",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-109"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-110",
+        "material_name": "知识产权与科研成果",
+        "material_type": "IP_ASSET",
+        "matched_requirement_ids": [
+          "REQ-110"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.ip_assets 为空",
+        "gap_detail": "整理软件著作权、专利等知识产权清单及证书扫描件",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-111",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-111"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-112",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-112"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-113",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-113"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-114",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-114"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-115",
+        "material_name": "资质认证证书",
+        "material_type": "QUALIFICATION_CERT",
+        "matched_requirement_ids": [
+          "REQ-115"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.qualifications 为空",
+        "gap_detail": "梳理本公司全部资质证书，逐项登记名称、编号、发证机关、有效期",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-116",
+        "material_name": "资质认证证书",
+        "material_type": "QUALIFICATION_CERT",
+        "matched_requirement_ids": [
+          "REQ-116"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.qualifications 为空",
+        "gap_detail": "梳理本公司全部资质证书，逐项登记名称、编号、发证机关、有效期",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-117",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-117"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-118",
+        "material_name": "格式与装订规范",
+        "material_type": "FORMAT_RULE",
+        "matched_requirement_ids": [
+          "REQ-118"
+        ],
+        "matched_asset_refs": [],
+        "status": "REVIEW",
+        "severity": "GATE",
+        "reason": "格式与装订规范类要求，不消耗公司资质资料",
+        "gap_detail": "由标书编制环节按招标格式要求落实；编制完成后逐项自查",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-119",
+        "material_name": "资质认证证书",
+        "material_type": "QUALIFICATION_CERT",
+        "matched_requirement_ids": [
+          "REQ-119"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.qualifications 为空",
+        "gap_detail": "梳理本公司全部资质证书，逐项登记名称、编号、发证机关、有效期",
+        "owner": "投标负责人",
+        "reviewer": null
+      },
+      {
+        "material_id": "MATREQ-120",
+        "material_name": "产品与平台能力材料",
+        "material_type": "CAPABILITY",
+        "matched_requirement_ids": [
+          "REQ-120"
+        ],
+        "matched_asset_refs": [],
+        "status": "MISSING",
+        "severity": "GATE",
+        "reason": "profile.capability 为空",
+        "gap_detail": "梳理可响应本项目技术要求的平台功能与案例，准备功能截图或演示环境",
+        "owner": "投标负责人",
+        "reviewer": null
+      }
+    ],
+    "summary": {
+      "total_requirements": 120,
+      "covered": 0,
+      "partial": 0,
+      "missing": 96,
+      "expired": 0,
+      "review": 24,
+      "gate_missing": 48
+    },
+    "confirmation": {
+      "confirmed_by": null,
+      "confirmed_at": null
+    }
+  },
+  "next_actions": [
+    {
+      "action": "按 资料缺口与补齐清单.md 的顺序补齐材料",
+      "owner": "投标负责人"
+    },
+    {
+      "action": "补齐后重跑 check_materials.py，直至 gate_missing 为 0 或明确放弃投标",
+      "owner": "投标负责人"
+    }
+  ]
+}

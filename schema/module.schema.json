@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://workbuddy.local/schemas/kzhc.bid-ops.v1/module.schema.json",
+  "title": "科智汇川投标助手模块输出",
+  "allOf": [
+    {"$ref": "envelope.schema.json"},
+    {
+      "oneOf": [
+        {"properties": {"module": {"const": "S1"}, "data": {"$ref": "#/$defs/s1_data"}}},
+        {"properties": {"module": {"const": "S2"}, "data": {"$ref": "#/$defs/s2_data"}}},
+        {"properties": {"module": {"const": "S3"}, "data": {"$ref": "#/$defs/s3_data"}}}
+      ]
+    }
+  ],
+  "$defs": {
+    "requirement": {
+      "type": "object",
+      "required": ["requirement_id", "category", "text", "mandatory", "score", "evidence_refs"],
+      "properties": {
+        "requirement_id": {"pattern": "^REQ-[0-9]{3}$"},
+        "category": {"enum": ["QUALIFICATION", "SCORING", "DELIVERY", "FORMAT"]},
+        "text": {"type": "string"},
+        "mandatory": {"type": "boolean"},
+        "score": {"type": ["number", "null"]},
+        "evidence_refs": {"type": "array", "items": {"$ref": "envelope.schema.json#/$defs/evidence"}},
+        "severity_symbol": {"type": ["string", "null"], "enum": ["★", "▲", "█", "●", null]},
+        "deduction_per_item": {"type": ["number", "null"]},
+        "source_chapter": {"type": ["string", "null"]},
+        "deliverable_group": {"type": ["string", "null"]},
+        "quantity_semantics": {"type": ["string", "null"], "enum": ["AT_LEAST", "RANGE", "EXACT", "UNSPECIFIED", null]},
+        "verification_means": {"type": "array", "items": {"type": "string"}},
+        "cross_refs": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "scoring_pool": {
+      "type": ["object", "null"],
+      "required": ["declared_total", "computed_total", "closed", "items"],
+      "properties": {
+        "declared_total": {"type": ["number", "null"]},
+        "computed_total": {"type": ["number", "null"]},
+        "closed": {"type": ["boolean", "null"]},
+        "formula": {"type": ["string", "null"]},
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["symbol", "count", "deduction_per_item", "subtotal"],
+            "properties": {
+              "symbol": {"type": "string"},
+              "count": {"type": "integer"},
+              "deduction_per_item": {"type": "number"},
+              "subtotal": {"type": "number"},
+              "evidence_refs": {"type": "array", "items": {"type": "object"}}
+            }
+          }
+        }
+      }
+    },
+    "symbol_reconciliation": {
+      "type": ["object", "null"],
+      "properties": {
+        "declared": {"type": "object"},
+        "actual": {"type": "object"},
+        "full_document_scan": {"type": "object"},
+        "coverage_ledger": {
+          "type": "object",
+          "description": "R15 强制：源文本中每一处符号出现位置都必须有且仅有一条处置记录。比『源计数==需求计数』更严格，因为评分规则描述句会在一行内引用多个符号，朴素计数会误报。",
+          "properties": {
+            "source": {"type": "string"},
+            "source_counts": {"type": "object"},
+            "dispositions": {"type": "array", "items": {"type": "string"}},
+            "rule": {"type": "string"},
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["symbol", "source_line", "raw_excerpt", "disposition"],
+                "properties": {
+                  "symbol": {"enum": ["★", "▲", "█", "●"]},
+                  "source_line": {"type": "integer", "minimum": 1},
+                  "raw_excerpt": {"type": "string"},
+                  "disposition": {
+                    "enum": ["COVERED", "EXEMPT"],
+                    "description": "COVERED=已成为独立可评审条款并落位为 requirement_id；EXEMPT=解释性文字/评分规则引用/章节标题，不构成独立条款"
+                  },
+                  "requirement_id": {"type": ["string", "null"]},
+                  "reason": {"type": ["string", "null"]}
+                }
+              }
+            }
+          }
+        },
+        "anomalies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["locator", "message"],
+            "properties": {"locator": {"type": "string"}, "message": {"type": "string"}}
+          }
+        }
+      }
+    },
+    "s1_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["project", "analysis_scope", "requirements", "scoring_pool", "symbol_reconciliation", "template_requirements", "unread_sections"],
+      "properties": {
+        "project": {
+          "type": "object",
+          "required": ["project_id", "project_name", "bidder_name", "procurement_type", "historical_replay", "analysis_date"],
+          "properties": {
+            "project_id": {"type": "string"},
+            "project_name": {"type": "string"},
+            "bidder_name": {"type": "string"},
+            "tenderer_name": {"type": ["string", "null"]},
+            "agency_name": {"type": ["string", "null"]},
+            "procurement_type": {"type": ["string", "null"]},
+            "budget": {"type": ["string", "null"]},
+            "deadline": {"type": ["string", "null"]},
+            "historical_replay": {"type": "boolean"},
+            "analysis_date": {"type": "string"}
+          }
+        },
+        "analysis_scope": {"type": "object"},
+        "requirements": {"type": "array", "items": {"$ref": "#/$defs/requirement"}},
+        "scoring_pool": {"$ref": "#/$defs/scoring_pool"},
+        "symbol_reconciliation": {"$ref": "#/$defs/symbol_reconciliation"},
+        "template_requirements": {"type": "array", "items": {"type": "string"}},
+        "unread_sections": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "material_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["material_id", "material_type", "matched_requirement_ids", "status", "reason"],
+      "properties": {
+        "material_id": {"type": "string"},
+        "material_name": {"type": ["string", "null"]},
+        "material_type": {"type": "string"},
+        "matched_requirement_ids": {"type": "array", "items": {"type": "string"}},
+        "matched_asset_refs": {"type": "array", "items": {"type": "string"}},
+        "status": {"enum": ["COVERED", "PARTIAL", "MISSING", "EXPIRED", "REVIEW"]},
+        "severity": {"type": ["string", "null"], "enum": ["GATE", "SCORING", "NORMAL", null]},
+        "reason": {"type": "string"},
+        "gap_detail": {"type": ["string", "null"]},
+        "owner": {"type": ["string", "null"]},
+        "reviewer": {"type": ["string", "null"]}
+      }
+    },
+    "s2_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_ref", "materials_scanned", "material_index", "items", "summary", "confirmation"],
+      "properties": {
+        "profile_ref": {"type": "object"},
+        "materials_scanned": {"type": "array", "items": {"type": "object"}},
+        "material_index": {"type": "array", "items": {"type": "object"}},
+        "items": {"type": "array", "items": {"$ref": "#/$defs/material_item"}},
+        "summary": {
+          "type": "object",
+          "required": ["total_requirements", "covered", "partial", "missing", "expired", "review"],
+          "properties": {
+            "total_requirements": {"type": "integer"},
+            "covered": {"type": "integer"},
+            "partial": {"type": "integer"},
+            "missing": {"type": "integer"},
+            "expired": {"type": "integer"},
+            "review": {"type": "integer"},
+            "gate_missing": {"type": "integer"}
+          }
+        },
+        "confirmation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["confirmed_by", "confirmed_at"],
+          "properties": {
+            "confirmed_by": {"type": ["string", "null"]},
+            "confirmed_at": {"type": ["string", "null"]}
+          }
+        }
+      }
+    },
+    "s3_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score_plan", "risk_items", "clarification_items", "section_plan", "schedule", "plan_status"],
+      "properties": {
+        "score_plan": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["priority", "target", "requirement_ids", "potential_gain", "basis"],
+            "properties": {
+              "priority": {"type": "integer"},
+              "target": {"type": "string"},
+              "requirement_ids": {"type": "array", "items": {"type": "string"}},
+              "potential_gain": {"type": ["number", "null"]},
+              "basis": {"type": "string"}
+            }
+          }
+        },
+        "risk_items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["risk_id", "level", "description", "source_ref", "mitigation", "owner"],
+            "properties": {
+              "risk_id": {"type": "string"},
+              "level": {"enum": ["FATAL", "HIGH", "MEDIUM", "LOW"]},
+              "description": {"type": "string"},
+              "source_ref": {"type": "string"},
+              "mitigation": {"type": "string"},
+              "owner": {"type": "string"}
+            }
+          }
+        },
+        "clarification_items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["question", "source_ref", "deadline_hint", "status"],
+            "properties": {
+              "question": {"type": "string"},
+              "source_ref": {"type": "string"},
+              "deadline_hint": {"type": ["string", "null"]},
+              "status": {"enum": ["DRAFTED", "SENT", "ANSWERED", "DROPPED"]}
+            }
+          }
+        },
+        "section_plan": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["section_id", "title", "source_requirement_ids", "owner", "status"],
+            "properties": {
+              "section_id": {"type": "string"},
+              "title": {"type": "string"},
+              "source_requirement_ids": {"type": "array", "items": {"type": "string"}},
+              "owner": {"type": ["string", "null"]},
+              "status": {"enum": ["PLANNED", "DRAFTING", "READY", "BLOCKED"]}
+            }
+          }
+        },
+        "schedule": {"type": "array", "items": {"type": "object"}},
+        "plan_status": {"enum": ["DRAFT_READY", "PARTIAL", "BLOCKED"]},
+        "context": {"type": "object"}
+      }
+    }
+  }
+}

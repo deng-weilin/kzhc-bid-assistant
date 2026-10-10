@@ -1,0 +1,573 @@
+{
+  "schema_version": "kzhc.bid-ops.v1",
+  "module": "S3",
+  "run_id": "KZHC-20261010-S3-001",
+  "project_id": "N5100012026002044",
+  "bidder_name": "四川省科智汇川人工智能科技有限责任公司",
+  "source_mode": "REAL_INPUT",
+  "input_refs": [
+    {
+      "source_id": "SRC-BRIEF",
+      "file_name": "tender_brief.json",
+      "relative_path": "tender_brief.json",
+      "kind": "tender_brief",
+      "origin": "S1 output",
+      "sha256": "eb2a53d04479c2dbe1ba91d15b2619743d866e841b02d8e35d111d280af236f1",
+      "version": "kzhc.bid-ops.v1"
+    },
+    {
+      "source_id": "SRC-CHECKLIST",
+      "file_name": "material_checklist.json",
+      "relative_path": "material_checklist.json",
+      "kind": "material_checklist",
+      "origin": "S2 output",
+      "sha256": "fb8309d425837dc380f68ab0b9557696c7ab4ef0266fd952e03bd93a7101ee87",
+      "version": "kzhc.bid-ops.v1"
+    }
+  ],
+  "processing_status": "REVIEW",
+  "issues": [
+    {
+      "code": "SYMBOL_GAP",
+      "message": "“八、虚拟仿真资源运行要求”中序号(1)~(11)连续，但带●符号的仅10条，序号(2)“平台需满足三级信息安全等级保护资质要求，并提供三级等保备案证明”未标注任何符号。评审表声明“●内容不满足扣0.5分（共10条）”，与此处实际符号数一致，说明漏标属实。该条实为准入级资质，按无符号条款仅扣0.4分显然与其性质不符，须人工确认真实扣分归属。已用 PDF 第22页与 docx XML 双源交叉验证（docx 包内无 numbering.xml，排除自动编号吞符号），确认符号缺失为文件自身缺陷，非本文本抽取问题。",
+      "source_ref": "docx 第445行 / PDF 第22页",
+      "owner": "招投标负责人",
+      "action": "向代理机构提出书面澄清，或按最严假设（实质性要求）准备等保三级备案证明。"
+    },
+    {
+      "code": "FORMAT_SOURCE_CONFLICT",
+      "message": "文件明确规定“正文部分包括pdf、word两种格式版本，如内容有不一致的，以pdf格式内容为准”，本次拆解基于docx抽取。关键条款已用PDF交叉复核：第557行三级等保条款（PDF第22页）PDF与docx表述一致，未发现版本差异；PDF共46页。其余条款仍建议以PDF为最终依据。",
+      "source_ref": "docx 第45行",
+      "owner": "招投标负责人",
+      "action": "交付前用PDF全文复核第499、811、817行等高分值条款文字。"
+    },
+    {
+      "code": "NO_DEDUCTION_POOL",
+      "message": "价格扣除项为“无”，本项目不享受价格评审扣除优惠，报价分10分按基准价/评审价直接计算。",
+      "source_ref": "第838-847行",
+      "owner": "招投标负责人",
+      "action": "报价策略按满分10分、无政策扣减测算。"
+    },
+    {
+      "code": "DEMO_RISK",
+      "message": "48分技术指标要求供应商用真实运行系统现场演示（一体化平台，共享课与虚仿须同一平台、统一入口与后台），PPT/word/图片/demo演示均不得分，演示时间≤20分钟。演示能力是本项目最大失分风险点。",
+      "source_ref": "第811行",
+      "owner": "技术方案负责人",
+      "action": "提前完成演示环境搭建与≤20分钟演示脚本，逐条对齐12条▲与3条█。"
+    },
+    {
+      "code": "TRUNCATED_TEXT",
+      "message": "requirements[].text 为便于阅读已截断至首段，evidence_refs[].quote 截断至300字符；完整原文以 locator 的行号定位为准。",
+      "source_ref": "全文件（3.2「2 服务要求与制作标准」）",
+      "owner": "拆解执行人",
+      "action": "需要完整条款时回源文件按行号取原文。"
+    },
+    {
+      "code": "DEADLINE_NOT_IN_DOCUMENT",
+      "message": "本文件未载明提交响应文件的具体截止时间，正文1.8条注明『详见采购公告』。排期与递交节点无法从本文件推导。",
+      "source_ref": "第46-47行 1.8.提交响应文件截止时间及开启时间、方式、地点",
+      "owner": "投标负责人",
+      "action": "从四川政府采购网采购公告获取截止时间，确认后回填。"
+    },
+    {
+      "code": "STAR_LEDGER_ESTABLISHED",
+      "message": "★ 覆盖缺口已修复并转为常设校验：源文本 ★ 共 30 处，逐行台账显示可评审实质性条款 27 条已全部落位，另 3 处为解释性文字/评分规则引用（EXEMPT）。此前版本仅落位1条且引用了未经核实的行号（第567/584/588/592/596/600/605行在文件中并非★条款），该错误引用已删除。本次修复由 validate.py 新增规则 R15 把关，同类漏拆将直接导致校验失败。",
+      "source_ref": "data.symbol_reconciliation.coverage_ledger",
+      "owner": "投标负责人",
+      "action": "人工复核 coverage_ledger 中全部 COVERED 映射是否与实际条款一一对应（建议抽查不低于30%）。"
+    },
+    {
+      "code": "LOCATOR_REBASELINED",
+      "message": "历史版本的 evidence_refs[].locator 指向的是另一份抽取文件（tender-analysis/tender_raw.txt），该文件未随 skill 分发，且与包内 tender_raw.docx.txt 行号体系不一致，导致溯源链断裂。本版全部 locator 已按 quote 前80字在包内 raw 中精确锚定后重映射，103条历史条目全部命中（0失败）。",
+      "source_ref": "source_fingerprint.json → files[tag=docx].raw_text_file",
+      "owner": "拆解执行人",
+      "action": "后续任何抽取脚本变更后，须重跑锚定并确认 0 失败，否则视为溯源失效。"
+    },
+    {
+      "code": "GATE_MATERIAL_MISSING",
+      "message": "48 条准入级要求（mandatory / ★）对应的资料缺失或过期，按现状投标存在废标风险。",
+      "source_ref": "data.items（severity=GATE 且 status∈{MISSING,EXPIRED}）",
+      "owner": "投标负责人",
+      "action": "逐条补齐准入级材料或评估放弃投标；不得以其他材料类比替代。"
+    },
+    {
+      "code": "EMPTY_MATERIAL_LIBRARY",
+      "message": "资料库为空，本次核对结果为阴性对照（全部缺失），不代表本公司真实缺口。",
+      "source_ref": "C:/Users/Administrator/WorkBuddy/2026-10-10-14-35-02/kzhc-bid/materials",
+      "owner": "投标负责人",
+      "action": "放入真实材料后重跑本步骤。"
+    },
+    {
+      "code": "PROFILE_NOT_FILLED",
+      "message": "company_profile.yaml 已解析但几乎无有效内容（仅主体名称），所有依赖公司资质的条目均判为缺失。",
+      "source_ref": "C:/Users/Administrator/WorkBuddy/2026-10-10-14-35-02/kzhc-bid/company_profile.yaml",
+      "owner": "投标负责人",
+      "action": "按 references/company-profile-guide.md 逐项如实填报，并附证明材料文件名。"
+    },
+    {
+      "code": "DEADLINE_UNPARSED",
+      "message": "未能从招标文件中解析出投标截止时间，排期里程碑暂无具体日期。",
+      "source_ref": "data.project.deadline",
+      "owner": "投标负责人",
+      "action": "人工确认投标截止时间后填入 tender_brief.json 并重跑本步骤"
+    }
+  ],
+  "data": {
+    "score_plan": [
+      {
+        "priority": 1,
+        "target": "评分项 REQ-091：履约能力（客观，22分）：1）课程上线运行平台具备申报成功且运行的国家级线上一流",
+        "requirement_ids": [
+          "REQ-091"
+        ],
+        "potential_gain": 22.0,
+        "basis": "评标办法单独列示的评分项（22.0 分）"
+      },
+      {
+        "priority": 2,
+        "target": "▲ 类技术指标（12 条，共 18.0 分）",
+        "requirement_ids": [
+          "REQ-042",
+          "REQ-044",
+          "REQ-045",
+          "REQ-046",
+          "REQ-049",
+          "REQ-050",
+          "REQ-051",
+          "REQ-054",
+          "REQ-055",
+          "REQ-061",
+          "REQ-062",
+          "REQ-063"
+        ],
+        "potential_gain": 18.0,
+        "basis": "12 条 × 单条扣 1.5 分 = 18.0 分；其中 12 条资料缺失"
+      },
+      {
+        "priority": 3,
+        "target": "█ 类技术指标（3 条，共 15.0 分）",
+        "requirement_ids": [
+          "REQ-058",
+          "REQ-059",
+          "REQ-060"
+        ],
+        "potential_gain": 15.0,
+        "basis": "3 条 × 单条扣 5.0 分 = 15.0 分；其中 3 条资料缺失"
+      },
+      {
+        "priority": 4,
+        "target": "评分项 REQ-093：项目实施方案（主观，15分）：实施方案含①项目整体建设计划②课程资源建设流程③课",
+        "requirement_ids": [
+          "REQ-093"
+        ],
+        "potential_gain": 15.0,
+        "basis": "评标办法单独列示的评分项（15.0 分）"
+      },
+      {
+        "priority": 5,
+        "target": "评分项 REQ-094：报价得分（客观，10分）：报价得分=(基准价/评审价)×10；满足采购文件要求且",
+        "requirement_ids": [
+          "REQ-094"
+        ],
+        "potential_gain": 10.0,
+        "basis": "评标办法单独列示的评分项（10.0 分）"
+      },
+      {
+        "priority": 6,
+        "target": "（无符号） 类技术指标（25 条，共 10.0 分）",
+        "requirement_ids": [
+          "REQ-033",
+          "REQ-034",
+          "REQ-035",
+          "REQ-036",
+          "REQ-038",
+          "REQ-039",
+          "REQ-040",
+          "REQ-041",
+          "REQ-043",
+          "REQ-047",
+          "REQ-048",
+          "REQ-052",
+          "REQ-053",
+          "REQ-056",
+          "REQ-057",
+          "REQ-064",
+          "REQ-065",
+          "REQ-066",
+          "REQ-067",
+          "REQ-068",
+          "REQ-069",
+          "REQ-070",
+          "REQ-071",
+          "REQ-072",
+          "REQ-074"
+        ],
+        "potential_gain": 10.0,
+        "basis": "25 条 × 单条扣 0.4 分 = 10.0 分；其中 23 条资料缺失"
+      },
+      {
+        "priority": 7,
+        "target": "● 类技术指标（10 条，共 5.0 分）",
+        "requirement_ids": [
+          "REQ-073",
+          "REQ-075",
+          "REQ-076",
+          "REQ-077",
+          "REQ-078",
+          "REQ-079",
+          "REQ-080",
+          "REQ-081",
+          "REQ-082",
+          "REQ-083"
+        ],
+        "potential_gain": 5.0,
+        "basis": "10 条 × 单条扣 0.5 分 = 5.0 分；其中 10 条资料缺失"
+      },
+      {
+        "priority": 8,
+        "target": "评分项 REQ-092：类似业绩（客观，5分）：2023年1月1日至投标截止时间（以合同签订时间为准）承",
+        "requirement_ids": [
+          "REQ-092"
+        ],
+        "potential_gain": 5.0,
+        "basis": "评标办法单独列示的评分项（5.0 分）"
+      }
+    ],
+    "risk_items": [
+      {
+        "risk_id": "RISK-001",
+        "level": "FATAL",
+        "description": "[SYMBOL_GAP] “八、虚拟仿真资源运行要求”中序号(1)~(11)连续，但带●符号的仅10条，序号(2)“平台需满足三级信息安全等级保护资质要求，并提供三级等保备案证明”未标注任何符号。评审表声明“●内容不满足扣0.5分（共10条）”，与此处实际符号数一致，说明漏标属实。该条实为准入级资质，按无符号条款仅扣0.4分显然与其性质不符，须人工确认真实扣分归属。已用 PDF 第22页与 docx XML 双源交叉验证（docx 包内无 numbering.xml，排除自动编号吞符号），确认符号缺失为文件自身缺陷，非本文本抽取问题。",
+        "source_ref": "docx 第445行 / PDF 第22页",
+        "mitigation": "向代理机构提出书面澄清，或按最严假设（实质性要求）准备等保三级备案证明。",
+        "owner": "招投标负责人"
+      },
+      {
+        "risk_id": "RISK-002",
+        "level": "HIGH",
+        "description": "[FORMAT_SOURCE_CONFLICT] 文件明确规定“正文部分包括pdf、word两种格式版本，如内容有不一致的，以pdf格式内容为准”，本次拆解基于docx抽取。关键条款已用PDF交叉复核：第557行三级等保条款（PDF第22页）PDF与docx表述一致，未发现版本差异；PDF共46页。其余条款仍建议以PDF为最终依据。",
+        "source_ref": "docx 第45行",
+        "mitigation": "交付前用PDF全文复核第499、811、817行等高分值条款文字。",
+        "owner": "招投标负责人"
+      },
+      {
+        "risk_id": "RISK-003",
+        "level": "MEDIUM",
+        "description": "[NO_DEDUCTION_POOL] 价格扣除项为“无”，本项目不享受价格评审扣除优惠，报价分10分按基准价/评审价直接计算。",
+        "source_ref": "第838-847行",
+        "mitigation": "报价策略按满分10分、无政策扣减测算。",
+        "owner": "招投标负责人"
+      },
+      {
+        "risk_id": "RISK-004",
+        "level": "MEDIUM",
+        "description": "[DEMO_RISK] 48分技术指标要求供应商用真实运行系统现场演示（一体化平台，共享课与虚仿须同一平台、统一入口与后台），PPT/word/图片/demo演示均不得分，演示时间≤20分钟。演示能力是本项目最大失分风险点。",
+        "source_ref": "第811行",
+        "mitigation": "提前完成演示环境搭建与≤20分钟演示脚本，逐条对齐12条▲与3条█。",
+        "owner": "技术方案负责人"
+      },
+      {
+        "risk_id": "RISK-005",
+        "level": "MEDIUM",
+        "description": "[TRUNCATED_TEXT] requirements[].text 为便于阅读已截断至首段，evidence_refs[].quote 截断至300字符；完整原文以 locator 的行号定位为准。",
+        "source_ref": "全文件（3.2「2 服务要求与制作标准」）",
+        "mitigation": "需要完整条款时回源文件按行号取原文。",
+        "owner": "拆解执行人"
+      },
+      {
+        "risk_id": "RISK-006",
+        "level": "MEDIUM",
+        "description": "[DEADLINE_NOT_IN_DOCUMENT] 本文件未载明提交响应文件的具体截止时间，正文1.8条注明『详见采购公告』。排期与递交节点无法从本文件推导。",
+        "source_ref": "第46-47行 1.8.提交响应文件截止时间及开启时间、方式、地点",
+        "mitigation": "从四川政府采购网采购公告获取截止时间，确认后回填。",
+        "owner": "投标负责人"
+      },
+      {
+        "risk_id": "RISK-007",
+        "level": "MEDIUM",
+        "description": "[STAR_LEDGER_ESTABLISHED] ★ 覆盖缺口已修复并转为常设校验：源文本 ★ 共 30 处，逐行台账显示可评审实质性条款 27 条已全部落位，另 3 处为解释性文字/评分规则引用（EXEMPT）。此前版本仅落位1条且引用了未经核实的行号（第567/584/588/592/596/600/605行在文件中并非★条款），该错误引用已删除。本次修复由 validate.py 新增规则 R15 把关，同类漏拆将直接导致校验失败。",
+        "source_ref": "data.symbol_reconciliation.coverage_ledger",
+        "mitigation": "人工复核 coverage_ledger 中全部 COVERED 映射是否与实际条款一一对应（建议抽查不低于30%）。",
+        "owner": "投标负责人"
+      },
+      {
+        "risk_id": "RISK-008",
+        "level": "MEDIUM",
+        "description": "[LOCATOR_REBASELINED] 历史版本的 evidence_refs[].locator 指向的是另一份抽取文件（tender-analysis/tender_raw.txt），该文件未随 skill 分发，且与包内 tender_raw.docx.txt 行号体系不一致，导致溯源链断裂。本版全部 locator 已按 quote 前80字在包内 raw 中精确锚定后重映射，103条历史条目全部命中（0失败）。",
+        "source_ref": "source_fingerprint.json → files[tag=docx].raw_text_file",
+        "mitigation": "后续任何抽取脚本变更后，须重跑锚定并确认 0 失败，否则视为溯源失效。",
+        "owner": "拆解执行人"
+      },
+      {
+        "risk_id": "RISK-009",
+        "level": "FATAL",
+        "description": "[GATE_MATERIAL_MISSING] 48 条准入级要求（mandatory / ★）对应的资料缺失或过期，按现状投标存在废标风险。",
+        "source_ref": "data.items（severity=GATE 且 status∈{MISSING,EXPIRED}）",
+        "mitigation": "逐条补齐准入级材料或评估放弃投标；不得以其他材料类比替代。",
+        "owner": "投标负责人"
+      },
+      {
+        "risk_id": "RISK-010",
+        "level": "HIGH",
+        "description": "[EMPTY_MATERIAL_LIBRARY] 资料库为空，本次核对结果为阴性对照（全部缺失），不代表本公司真实缺口。",
+        "source_ref": "C:/Users/Administrator/WorkBuddy/2026-10-10-14-35-02/kzhc-bid/materials",
+        "mitigation": "放入真实材料后重跑本步骤。",
+        "owner": "投标负责人"
+      },
+      {
+        "risk_id": "RISK-011",
+        "level": "MEDIUM",
+        "description": "[PROFILE_NOT_FILLED] company_profile.yaml 已解析但几乎无有效内容（仅主体名称），所有依赖公司资质的条目均判为缺失。",
+        "source_ref": "C:/Users/Administrator/WorkBuddy/2026-10-10-14-35-02/kzhc-bid/company_profile.yaml",
+        "mitigation": "按 references/company-profile-guide.md 逐项如实填报，并附证明材料文件名。",
+        "owner": "投标负责人"
+      },
+      {
+        "risk_id": "RISK-012",
+        "level": "FATAL",
+        "description": "48 条准入级要求的材料缺失或过期",
+        "source_ref": "material_checklist.json → data.summary.gate_missing",
+        "mitigation": "按《资料缺口与补齐清单.md》逐条补齐；确认无法补齐的，需在投标决策阶段明确评估放弃风险",
+        "owner": "投标负责人"
+      }
+    ],
+    "clarification_items": [
+      {
+        "question": "关于 docx 第445行 / PDF 第22页：“八、虚拟仿真资源运行要求”中序号(1)~(11)连续，但带●符号的仅10条，序号(2)“平台需满足三级信息安全等级保护资质要求，并提供三级等保备案证明”未标注任何符号。评审表声明“●内容不满足扣0.5分（共10条）”，与此处实际符号数一致，说明漏标属实。该条实为准入级资质，按无符号条款仅扣0.4分显然与其性质不符，须人工确认真实扣分归属。已用 PDF 第22页与 docx XML 双源交叉验证（docx 包内无 numbering.xml，排除自动编号吞符号），确认符号缺失为文件自身缺陷，非本文本抽取问题。",
+        "source_ref": "docx 第445行 / PDF 第22页",
+        "deadline_hint": null,
+        "status": "DRAFTED"
+      },
+      {
+        "question": "关于 docx 第45行：文件明确规定“正文部分包括pdf、word两种格式版本，如内容有不一致的，以pdf格式内容为准”，本次拆解基于docx抽取。关键条款已用PDF交叉复核：第557行三级等保条款（PDF第22页）PDF与docx表述一致，未发现版本差异；PDF共46页。其余条款仍建议以PDF为最终依据。",
+        "source_ref": "docx 第45行",
+        "deadline_hint": null,
+        "status": "DRAFTED"
+      }
+    ],
+    "section_plan": [
+      {
+        "section_id": "SEC-001",
+        "title": "投标函与投标函附录",
+        "source_requirement_ids": [
+          "REQ-095"
+        ],
+        "owner": "投标负责人",
+        "status": "PLANNED"
+      },
+      {
+        "section_id": "SEC-002",
+        "title": "资格证明文件",
+        "source_requirement_ids": [
+          "REQ-001",
+          "REQ-002",
+          "REQ-003",
+          "REQ-004",
+          "REQ-005",
+          "REQ-006",
+          "REQ-007",
+          "REQ-008",
+          "REQ-009",
+          "REQ-010",
+          "REQ-011",
+          "REQ-110",
+          "REQ-115",
+          "REQ-116",
+          "REQ-119"
+        ],
+        "owner": "投标负责人",
+        "status": "PLANNED"
+      },
+      {
+        "section_id": "SEC-003",
+        "title": "技术响应与得分方案",
+        "source_requirement_ids": [
+          "REQ-090",
+          "REQ-091",
+          "REQ-092",
+          "REQ-093"
+        ],
+        "owner": "投标负责人",
+        "status": "PLANNED"
+      },
+      {
+        "section_id": "SEC-004",
+        "title": "服务实施方案",
+        "source_requirement_ids": [
+          "REQ-012",
+          "REQ-013",
+          "REQ-014",
+          "REQ-015",
+          "REQ-016",
+          "REQ-017",
+          "REQ-018",
+          "REQ-019",
+          "REQ-020",
+          "REQ-021",
+          "REQ-022",
+          "REQ-023",
+          "REQ-024",
+          "REQ-025",
+          "REQ-026",
+          "REQ-027",
+          "REQ-028",
+          "REQ-029",
+          "REQ-030",
+          "REQ-031",
+          "REQ-032",
+          "REQ-033",
+          "REQ-034",
+          "REQ-035",
+          "REQ-036",
+          "REQ-037",
+          "REQ-038",
+          "REQ-039",
+          "REQ-040",
+          "REQ-041",
+          "REQ-042",
+          "REQ-043",
+          "REQ-044",
+          "REQ-045",
+          "REQ-046",
+          "REQ-047",
+          "REQ-048",
+          "REQ-049",
+          "REQ-050",
+          "REQ-051",
+          "REQ-052",
+          "REQ-053",
+          "REQ-054",
+          "REQ-055",
+          "REQ-056",
+          "REQ-057",
+          "REQ-058",
+          "REQ-059",
+          "REQ-060",
+          "REQ-061",
+          "REQ-062",
+          "REQ-063",
+          "REQ-064",
+          "REQ-065",
+          "REQ-066",
+          "REQ-067",
+          "REQ-068",
+          "REQ-069",
+          "REQ-070",
+          "REQ-071",
+          "REQ-072",
+          "REQ-073",
+          "REQ-074",
+          "REQ-075",
+          "REQ-076",
+          "REQ-077",
+          "REQ-078",
+          "REQ-079",
+          "REQ-080",
+          "REQ-081",
+          "REQ-082",
+          "REQ-083",
+          "REQ-084",
+          "REQ-085",
+          "REQ-086",
+          "REQ-087",
+          "REQ-088",
+          "REQ-089",
+          "REQ-104",
+          "REQ-106",
+          "REQ-107",
+          "REQ-120"
+        ],
+        "owner": "投标负责人",
+        "status": "PLANNED"
+      },
+      {
+        "section_id": "SEC-005",
+        "title": "投标文件编制规范自查（格式与签署要求）",
+        "source_requirement_ids": [
+          "REQ-095",
+          "REQ-096",
+          "REQ-097",
+          "REQ-098",
+          "REQ-099",
+          "REQ-100",
+          "REQ-101",
+          "REQ-102",
+          "REQ-103",
+          "REQ-105",
+          "REQ-108",
+          "REQ-109",
+          "REQ-111",
+          "REQ-112",
+          "REQ-113",
+          "REQ-114",
+          "REQ-117",
+          "REQ-118"
+        ],
+        "owner": "标书编制人",
+        "status": "PLANNED"
+      },
+      {
+        "section_id": "SEC-006",
+        "title": "报价文件",
+        "source_requirement_ids": [
+          "REQ-094"
+        ],
+        "owner": "商务负责人",
+        "status": "PLANNED"
+      }
+    ],
+    "schedule": [
+      {
+        "milestone": "资格材料齐备（营业执照、资质、财务、人员）",
+        "due_date": null,
+        "owner": "投标负责人",
+        "basis": "投标截止前 10 天（截止时间待确认）"
+      },
+      {
+        "milestone": "技术方案初稿完成",
+        "due_date": null,
+        "owner": "投标负责人",
+        "basis": "投标截止前 7 天（截止时间待确认）"
+      },
+      {
+        "milestone": "得分项逐条自查（对照 scoring_pool）",
+        "due_date": null,
+        "owner": "投标负责人",
+        "basis": "投标截止前 5 天（截止时间待确认）"
+      },
+      {
+        "milestone": "全文校核：格式、签字、盖章、份数",
+        "due_date": null,
+        "owner": "投标负责人",
+        "basis": "投标截止前 3 天（截止时间待确认）"
+      },
+      {
+        "milestone": "定稿打印、装订、密封、递交",
+        "due_date": null,
+        "owner": "投标负责人",
+        "basis": "投标截止前 1 天（截止时间待确认）"
+      }
+    ],
+    "plan_status": "BLOCKED",
+    "context": {
+      "declared_total_pool": 48.0,
+      "gate_missing": 48,
+      "deadline": null,
+      "requirement_count": 120
+    }
+  },
+  "next_actions": [
+    {
+      "action": "就 clarification_items 中的问题向采购人/代理机构书面澄清（状态置 SENT 需人工操作）",
+      "owner": "投标负责人"
+    },
+    {
+      "action": "按 score_plan 优先级组织技术方案攻关顺序",
+      "owner": "技术负责人"
+    },
+    {
+      "action": "补齐资料缺口后重跑 S2 与 S3，直至 plan_status 达到 DRAFT_READY",
+      "owner": "投标负责人"
+    }
+  ]
+}

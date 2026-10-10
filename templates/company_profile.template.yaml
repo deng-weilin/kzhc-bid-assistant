@@ -1,0 +1,82 @@
+# 科智汇川投标助手 · 公司资料档案（人工填报模板）
+#
+# 使用规则：
+#   1. 本文件是公司事实的唯一权威来源，模型不得自行推断或补全任何字段。
+#   2. 每个条目必须有 evidence（证明材料文件名或相对路径）。没有 evidence 的
+#      value 一律视为未填报，S2 会记 MISSING。
+#   3. 未知一律写 null（→ MISSING）；填了但内容为空写 ""（→ REVIEW）。
+#   4. 有效期用 YYYY-MM-DD。过期即 EXPIRED，不接受"预计已续期"。
+#   5. 名称类字段逐字照抄证件原文，不做简称。
+
+schema_version: kzhc.company-profile.v1
+
+# ---------- 主体身份 ----------
+identity:
+  company_name: "四川省科智汇川人工智能科技有限责任公司"
+  unified_social_credit_code: null      # 统一社会信用代码
+  legal_representative: null            # 法定代表人
+  registered_address: null              # 注册地址
+  established_date: null                # 成立日期 YYYY-MM-DD
+  registered_capital: null              # 注册资本
+  business_scope: null                  # 经营范围
+  evidence: []                          # 如 ["营业执照.pdf"]
+
+# ---------- 资质证书 ----------
+qualifications:
+  - name: null                          # 如 "信息安全管理体系认证证书"
+    number: null
+    issuer: null                        # 发证机关
+    valid_from: null
+    valid_until: null
+    evidence: []
+  # 可继续追加条目
+
+# ---------- 财务 ----------
+financials:
+  years: []                             # 如 ["2023", "2024", "2025"]
+  audit_report_available: null          # true / false / null
+  revenue_by_year: {}
+  net_assets: null
+  evidence: []
+
+# ---------- 业绩 ----------
+performance:
+  - project_name: null
+    client_name: null                   # 甲方名称，逐字照抄
+    contract_amount: null
+    period: null
+    relevance: null                     # 与本项目的相近程度说明
+    evidence: []                        # 如 ["业绩合同扫描件/xxx.pdf", "中标通知书/xxx.pdf"]
+  # 可继续追加条目
+
+# ---------- 人员 ----------
+personnel:
+  - name: null
+    role: null                          # 拟任角色
+    title: null                         # 职称
+    certifications:
+      - name: null
+        number: null
+        valid_until: null
+        evidence: []
+    social_security_months: null        # 本单位社保连续缴纳月数
+  # 可继续追加条目
+
+# ---------- 知识产权与成果 ----------
+ip_assets:
+  - type: null                          # 软件著作权 / 专利 / 论文 / 标准
+    name: null
+    number: null
+    registered_date: null
+    evidence: []
+
+# ---------- 产品与能力 ----------
+capability:
+  - item: null                          # 能力/功能名称
+    description: null
+    demo_ready: null                    # 是否可现场演示 true/false
+    evidence: []
+
+# ---------- 填报人与时间 ----------
+filled_by: null                         # 填报人姓名
+filled_at: null                         # YYYY-MM-DD

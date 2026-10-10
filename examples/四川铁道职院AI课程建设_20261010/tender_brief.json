@@ -1,0 +1,3302 @@
+{
+  "schema_version": "kzhc.bid-ops.v1",
+  "module": "S1",
+  "run_id": "KZHC-20261010-S1-002",
+  "project_id": "N5100012026002044",
+  "bidder_name": "四川省科智汇川人工智能科技有限责任公司",
+  "source_mode": "REAL_INPUT",
+  "input_refs": [
+    {
+      "source_id": "SRC-001",
+      "file_name": "磋商文件.docx",
+      "relative_path": "input/磋商文件.docx",
+      "kind": "tender_document",
+      "origin": "user_supplied",
+      "sha256": "8328031b8446b14b4d6a348eb439c13a3005d78f38b58958bd90f4ddb43d2eb8",
+      "version": null
+    },
+    {
+      "source_id": "SRC-002",
+      "file_name": "磋商文件.pdf",
+      "relative_path": "input/磋商文件.pdf",
+      "kind": "tender_document",
+      "origin": "user_supplied",
+      "sha256": "ecd6842bfbed61012fbbd1e63c2f94c60bf144ce485da023648d1ee278e6612f",
+      "version": null
+    }
+  ],
+  "processing_status": "REVIEW",
+  "issues": [
+    {
+      "code": "SYMBOL_GAP",
+      "message": "“八、虚拟仿真资源运行要求”中序号(1)~(11)连续，但带●符号的仅10条，序号(2)“平台需满足三级信息安全等级保护资质要求，并提供三级等保备案证明”未标注任何符号。评审表声明“●内容不满足扣0.5分（共10条）”，与此处实际符号数一致，说明漏标属实。该条实为准入级资质，按无符号条款仅扣0.4分显然与其性质不符，须人工确认真实扣分归属。已用 PDF 第22页与 docx XML 双源交叉验证（docx 包内无 numbering.xml，排除自动编号吞符号），确认符号缺失为文件自身缺陷，非本文本抽取问题。",
+      "source_ref": "docx 第445行 / PDF 第22页",
+      "owner": "招投标负责人",
+      "action": "向代理机构提出书面澄清，或按最严假设（实质性要求）准备等保三级备案证明。"
+    },
+    {
+      "code": "FORMAT_SOURCE_CONFLICT",
+      "message": "文件明确规定“正文部分包括pdf、word两种格式版本，如内容有不一致的，以pdf格式内容为准”，本次拆解基于docx抽取。关键条款已用PDF交叉复核：第557行三级等保条款（PDF第22页）PDF与docx表述一致，未发现版本差异；PDF共46页。其余条款仍建议以PDF为最终依据。",
+      "source_ref": "docx 第45行",
+      "owner": "招投标负责人",
+      "action": "交付前用PDF全文复核第499、811、817行等高分值条款文字。"
+    },
+    {
+      "code": "NO_DEDUCTION_POOL",
+      "message": "价格扣除项为“无”，本项目不享受价格评审扣除优惠，报价分10分按基准价/评审价直接计算。",
+      "source_ref": "第838-847行",
+      "owner": "招投标负责人",
+      "action": "报价策略按满分10分、无政策扣减测算。"
+    },
+    {
+      "code": "DEMO_RISK",
+      "message": "48分技术指标要求供应商用真实运行系统现场演示（一体化平台，共享课与虚仿须同一平台、统一入口与后台），PPT/word/图片/demo演示均不得分，演示时间≤20分钟。演示能力是本项目最大失分风险点。",
+      "source_ref": "第811行",
+      "owner": "技术方案负责人",
+      "action": "提前完成演示环境搭建与≤20分钟演示脚本，逐条对齐12条▲与3条█。"
+    },
+    {
+      "code": "TRUNCATED_TEXT",
+      "message": "requirements[].text 为便于阅读已截断至首段，evidence_refs[].quote 截断至300字符；完整原文以 locator 的行号定位为准。",
+      "source_ref": "全文件（3.2「2 服务要求与制作标准」）",
+      "owner": "拆解执行人",
+      "action": "需要完整条款时回源文件按行号取原文。"
+    },
+    {
+      "code": "DEADLINE_NOT_IN_DOCUMENT",
+      "message": "本文件未载明提交响应文件的具体截止时间，正文1.8条注明『详见采购公告』。排期与递交节点无法从本文件推导。",
+      "source_ref": "第46-47行 1.8.提交响应文件截止时间及开启时间、方式、地点",
+      "owner": "投标负责人",
+      "action": "从四川政府采购网采购公告获取截止时间，确认后回填。"
+    },
+    {
+      "code": "STAR_LEDGER_ESTABLISHED",
+      "message": "★ 覆盖缺口已修复并转为常设校验：源文本 ★ 共 30 处，逐行台账显示可评审实质性条款 27 条已全部落位，另 3 处为解释性文字/评分规则引用（EXEMPT）。此前版本仅落位1条且引用了未经核实的行号（第567/584/588/592/596/600/605行在文件中并非★条款），该错误引用已删除。本次修复由 validate.py 新增规则 R15 把关，同类漏拆将直接导致校验失败。",
+      "source_ref": "data.symbol_reconciliation.coverage_ledger",
+      "owner": "投标负责人",
+      "action": "人工复核 coverage_ledger 中全部 COVERED 映射是否与实际条款一一对应（建议抽查不低于30%）。"
+    },
+    {
+      "code": "LOCATOR_REBASELINED",
+      "message": "历史版本的 evidence_refs[].locator 指向的是另一份抽取文件（tender-analysis/tender_raw.txt），该文件未随 skill 分发，且与包内 tender_raw.docx.txt 行号体系不一致，导致溯源链断裂。本版全部 locator 已按 quote 前80字在包内 raw 中精确锚定后重映射，103条历史条目全部命中（0失败）。",
+      "source_ref": "source_fingerprint.json → files[tag=docx].raw_text_file",
+      "owner": "拆解执行人",
+      "action": "后续任何抽取脚本变更后，须重跑锚定并确认 0 失败，否则视为溯源失效。"
+    }
+  ],
+  "data": {
+    "project": {
+      "project_id": "N5100012026002044",
+      "project_name": "AI赋能铁道移动通信课程建设及智能体开发与应用课程资源建设(二次)",
+      "bidder_name": "四川省科智汇川人工智能科技有限责任公司",
+      "tenderer_name": "四川铁道职业学院",
+      "agency_name": "四川建科工程建设管理有限公司",
+      "procurement_type": "竞争性磋商",
+      "budget": "采购包预算金额 650,000.00 元，采购包最高限价 650,000.00 元",
+      "deadline": null,
+      "historical_replay": false,
+      "analysis_date": "2026-10-10"
+    },
+    "analysis_scope": {
+      "included": [
+        "第一章 竞争性磋商邀请（资格条件、获取方式）",
+        "第二章 供应商须知（预算、保证金、响应有效期、代理服务费、纪律）",
+        "第三章 技术、服务及其他要求（采购内容、技术要求、商务要求）",
+        "第五章 磋商办法（资格审查、符合性审查、评审细则与分值）",
+        "第六章 响应文件格式（分册与附件清单）"
+      ],
+      "excluded": [
+        "第四章 可实质性变动内容（仅说明变动范围，无独立要求）",
+        "第七章 拟签订采购合同文本（合同条款，需在T2/合同环节单独核对）",
+        "第八章及以后（附件表单正文，未纳入本次抽取）",
+        "报价策略与成本测算（非T1范围）"
+      ],
+      "cross_chapter_read": true,
+      "chapters_read": 5,
+      "chapters_total": 7
+    },
+    "requirements": [
+      {
+        "requirement_id": "REQ-001",
+        "category": "QUALIFICATION",
+        "text": "具有独立承担民事责任的能力；需填写《投标（响应）函》并完成电子签章。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第524行 一、一般资格审查",
+            "quote": "具有独立承担民事责任的能力。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "一、一般资格审查",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-002",
+        "category": "QUALIFICATION",
+        "text": "具有良好的商业信誉；需《投标（响应）函》承诺并电子签章。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第21行 一、一般资格审查",
+            "quote": "具有良好的商业信誉"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "一、一般资格审查",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-003",
+        "category": "QUALIFICATION",
+        "text": "具有健全的财务会计制度；需《投标（响应）函》承诺并电子签章。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第526行 一、一般资格审查",
+            "quote": "具有健全的财务会计制度。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "一、一般资格审查",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-004",
+        "category": "QUALIFICATION",
+        "text": "具有履行合同所必需的设备和专业技术能力；需《投标（响应）函》承诺并电子签章。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第527行 一、一般资格审查",
+            "quote": "具有履行合同所必需的设备和专业技术能力。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "一、一般资格审查",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-005",
+        "category": "QUALIFICATION",
+        "text": "有依法缴纳税收和社会保障资金的良好记录；需《投标（响应）函》承诺并电子签章。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第528行 一、一般资格审查",
+            "quote": "有依法缴纳税收和社会保障资金的良好记录。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "一、一般资格审查",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-006",
+        "category": "QUALIFICATION",
+        "text": "参加政府采购活动前三年内在经营活动中没有重大违法记录；需承诺并电子签章。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第24行 一、一般资格审查",
+            "quote": "参加政府采购活动前三年内，在经营活动中没有重大违法记录。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "一、一般资格审查",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-007",
+        "category": "QUALIFICATION",
+        "text": "符合《政府采购法实施条例》第十八条第一款规定。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第530行 一、一般资格审查",
+            "quote": "符合《中华人民共和国政府采购法实施条例》第十八条第一款规定。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "一、一般资格审查",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-008",
+        "category": "QUALIFICATION",
+        "text": "符合《政府采购法实施条例》第十八条第二款规定。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第531行 一、一般资格审查",
+            "quote": "供应商需在使用投标(响应)客户端编制响应文件时，按要求填写《投标（响应）函》完成承诺并进行电子签章。为采购项目提供整体设计、规范编制或者项目管理、监理、检测等服务的供应商，可以同时承担前述服务内容，但不得再参加采购项目前述服务之外的其他采购活动。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "一、一般资格审查",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-009",
+        "category": "QUALIFICATION",
+        "text": "本采购包专门面向中小企业采购；须提供《中小企业声明函》（残疾人福利性单位／监狱企业提供对应声明或证明文件）。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第535行 二、落实政府采购政策资格审查",
+            "quote": "提供《中小企业声明函》，残疾人福利性单位提供《残疾人福利性单位声明函》，监狱企业提供由省级以上监狱管理局、戒毒管理局（含新疆生产建设兵团）出具的属于监狱企业的证明文件。（如供应商以联合体形式参加本采购包的，联合体各方均应当符合本采购包专门面向的企业类型；如供应商合同分包的，分包意向协议中分包意向供应商应当符合本采购包专门面向的企业类型。）"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "二、落实政府采购政策资格审查",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-010",
+        "category": "QUALIFICATION",
+        "text": "本采购包不接受联合体。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第70行 2.1 供应商须知附表 序号3",
+            "quote": "采购包1：不接受联合体"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.1 供应商须知附表 序号3",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-011",
+        "category": "QUALIFICATION",
+        "text": "不得被列入失信被执行人、重大税收违法失信主体、政府采购严重违法失信行为记录名单、严重违法失信企业名单。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第168行 2.5.2 查询及使用信用记录",
+            "quote": "开启结束后，采购人或者代理机构根据《关于在政府采购活动中查询及使用信用记录有关问题的通知》（财库〔2016〕125号）的要求，通过“信用中国”网站（www.creditchina.gov.cn）、“中国政府采购网”网站（www.ccgp.gov.cn）、“中国执行信息公开网”网站（http://zxgk.court.gov.cn/shixin/）等渠道，查询供应商在提交响应文件截止时间前的信用记录并保存信用记录结果网页截图，拒绝列入失信被执行人名单、重大税收违法案件当事人名单（重大税收违法失信主体）、政府采购严重违法失信行为记录名单、严重违法失信企业名单中的供应商参加本项目的采购活动。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "2.5.2 查询及使用信用记录",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-012",
+        "category": "DELIVERY",
+        "text": "开发沉浸式裸眼3D实训资源，不少于5个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第359行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "开发沉浸式裸眼3D实训资源"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-013",
+        "category": "DELIVERY",
+        "text": "虚拟仿真H5资源连线题型模块，20个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第360行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "连线题型模块"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-014",
+        "category": "DELIVERY",
+        "text": "虚拟仿真H5资源排序题型模块，20个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第361行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "虚拟仿真H5资源排序题型模块"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-015",
+        "category": "DELIVERY",
+        "text": "虚拟仿真H5资源选词填空题型模块，15个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第362行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "虚拟仿真H5资源选词填空题型模块"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-016",
+        "category": "DELIVERY",
+        "text": "虚拟仿真H5资源对象结构展示型模块，12个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第363行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "虚拟仿真H5资源对象结构展示型模块"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-017",
+        "category": "DELIVERY",
+        "text": "虚拟仿真H5资源图片重构型模块，40个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第364行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "虚拟仿真H5资源图片重构型模块"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-018",
+        "category": "DELIVERY",
+        "text": "虚拟仿真H5资源原理展示型模块，12个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第365行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "虚拟仿真H5资源原理展示型模块"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-019",
+        "category": "DELIVERY",
+        "text": "虚拟仿真H5资源微仿真类模块，27个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第366行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "虚拟仿真H5资源微仿真类模块"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-020",
+        "category": "DELIVERY",
+        "text": "虚仿实训应用模块，12个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第367行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "虚仿实训应用模块"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-021",
+        "category": "DELIVERY",
+        "text": "虚仿二维原理动画，60个（每套不低于30秒）。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第368行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "虚仿二维原理动画"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-022",
+        "category": "DELIVERY",
+        "text": "虚仿三维原理动画，20个（每套不低于5秒）。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第369行 3.2 技术要求 表1 采购需求及内容 · 虚拟仿真实训及H5资源",
+            "quote": "虚仿三维原理动画"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "虚拟仿真实训及H5资源",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-023",
+        "category": "DELIVERY",
+        "text": "视频类素材资源制作，不少于500分钟。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第370行 3.2 技术要求 表1 采购需求及内容 · 线上课程资源建设",
+            "quote": "不少于500分钟"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "线上课程资源建设",
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-024",
+        "category": "DELIVERY",
+        "text": "数字人形象，5-8个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第371行 3.2 技术要求 表1 采购需求及内容 · 线上课程资源建设",
+            "quote": "5-8个"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "线上课程资源建设",
+        "quantity_semantics": "RANGE",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-025",
+        "category": "DELIVERY",
+        "text": "视频类二维动画，200秒。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第372行 3.2 技术要求 表1 采购需求及内容 · 线上课程资源建设",
+            "quote": "200秒"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "线上课程资源建设",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-026",
+        "category": "DELIVERY",
+        "text": "知识图谱-核心知识点，不少于150个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第373行 3.2 技术要求 表1 采购需求及内容 · 智慧教学体系",
+            "quote": "核心知识点（不少于150个）"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "智慧教学体系",
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-027",
+        "category": "DELIVERY",
+        "text": "能力图谱-岗位技能点，不少于20个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第374行 3.2 技术要求 表1 采购需求及内容 · 智慧教学体系",
+            "quote": "岗位技能点（不少于20个）"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "智慧教学体系",
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-028",
+        "category": "DELIVERY",
+        "text": "问题图谱-全局/方法层问题，不少于50个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第375行 3.2 技术要求 表1 采购需求及内容 · 智慧教学体系",
+            "quote": "及全局/方法层问题（不少于50个）"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "智慧教学体系",
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-029",
+        "category": "DELIVERY",
+        "text": "思政图谱-思政点，不少于20个。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第376行 3.2 技术要求 表1 采购需求及内容 · 智慧教学体系",
+            "quote": "思政点不少于20个"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "智慧教学体系",
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-030",
+        "category": "DELIVERY",
+        "text": "智能体开发，1套。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第377行 3.2 技术要求 表1 采购需求及内容 · 智能体开发",
+            "quote": "1套"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "智能体开发",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-031",
+        "category": "DELIVERY",
+        "text": "AI工具不少于60种。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第378行 3.2 技术要求 表1 采购需求及内容 · AI模块",
+            "quote": "AI工具不少于60种"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "AI模块",
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-032",
+        "category": "DELIVERY",
+        "text": "数字教材出版，1本（须申领正规电子ISBN）。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第379行 3.2 技术要求 表1 采购需求及内容 · 数字教材出版",
+            "quote": "1本"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "3.2 技术要求 表1 采购需求及内容",
+        "deliverable_group": "数字教材出版",
+        "quantity_semantics": "EXACT",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-033",
+        "category": "DELIVERY",
+        "text": "（1）教学设计要求：提供一对一课程框架设计指导，课程设计专家同课程主要负责人根据教学大纲制定整体课程设计方案。课程顾问与课程团队沟通收集课程资料并根据课程量身定做创意方案、片花脚本、解说词以及故事板；",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第382行 一、课程资源建设要求 · （无符号）（1）",
+            "quote": "（1）教学设计要求：提供一对一课程框架设计指导，课程设计专家同课程主要负责人根据教学大纲制定整体课程设计方案。课程顾问与课程团队沟通收集课程资料并根据课程量身定做创意方案、片花脚本、解说词以及故事板；"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "一、课程资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-034",
+        "category": "DELIVERY",
+        "text": "（2）在课程的主讲教师明确教学目标的情况下，要求供应商根据教师提供的大纲文本、音频、视频、PPT等课程参考素材细分知识点，与课程教师按课程章节和知识点，对有关课程资料进行美化和包装，包括课程PPT、教案、拓展文档等资料。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第383行 一、课程资源建设要求 · （无符号）（2）",
+            "quote": "（2）在课程的主讲教师明确教学目标的情况下，要求供应商根据教师提供的大纲文本、音频、视频、PPT等课程参考素材细分知识点，与课程教师按课程章节和知识点，对有关课程资料进行美化和包装，包括课程PPT、教案、拓展文档等资料。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "一、课程资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-035",
+        "category": "DELIVERY",
+        "text": "（1）课程视频效果设计要求。参考国内外课程录制的形式，供应商须按制作经验及实际课程情况选择相应制作模式，并说明设计思想。要求能够较充分地反映课程的主要内容概况，集形、声、色、动态于一体，生动直观、易于接受、感染力强、形式新颖、生动有趣、富有……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第385行 一、课程资源建设要求 · （无符号）（1）",
+            "quote": "（1）课程视频效果设计要求。参考国内外课程录制的形式，供应商须按制作经验及实际课程情况选择相应制作模式，并说明设计思想。要求能够较充分地反映课程的主要内容概况，集形、声、色、动态于一体，生动直观、易于接受、感染力强、形式新颖、生动有趣、富有新意；"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "一、课程资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-036",
+        "category": "DELIVERY",
+        "text": "（2）片头片尾制作，长度4~10秒钟，能够体现课程特色，形式新颖，具有学校元素以及适当的音乐；片头或片尾应使用体现课程所属院校、机构特色的素材；片头或片尾中应出现明显、不失真的课程所属院校、机构的字样和标志；",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第386行 一、课程资源建设要求 · （无符号）（2）",
+            "quote": "（2）片头片尾制作，长度4~10秒钟，能够体现课程特色，形式新颖，具有学校元素以及适当的音乐；片头或片尾应使用体现课程所属院校、机构特色的素材；片头或片尾中应出现明显、不失真的课程所属院校、机构的字样和标志；"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "一、课程资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": "RANGE",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-037",
+        "category": "DELIVERY",
+        "text": "★（3）供应商承诺应按照《2022年职业教育在线精品课程观测指标》的具体要求制作视频，并提供全套符合申报平台技术标准的文件格式。验收时，采购人将依据《2022年职业教育在线精品课程观测指标》中的量化指标（如视频时长、分辨率、知识点覆盖率、交……",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第387行 一、课程资源建设要求 · ★（3）",
+            "quote": "★（3）供应商承诺应按照《2022年职业教育在线精品课程观测指标》的具体要求制作视频，并提供全套符合申报平台技术标准的文件格式。验收时，采购人将依据《2022年职业教育在线精品课程观测指标》中的量化指标（如视频时长、分辨率、知识点覆盖率、交互设计数量等）逐一核对，不达标部分供应商应配合修改至达标。（需提供承诺函并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "一、课程资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-038",
+        "category": "DELIVERY",
+        "text": "（1）视频信号源，稳定性：全片图像同步性能稳定，无失步现象，CTL同步控制信号必须连续；图像无抖动跳跃，色彩无突变，编辑点处图像稳定。信噪比：图像信噪比不低于55dB，无明显杂波。色调：白平衡正确，无明显偏色，多机拍摄的镜头衔接处无明显色差……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第389行 一、课程资源建设要求 · （无符号）（1）",
+            "quote": "（1）视频信号源，稳定性：全片图像同步性能稳定，无失步现象，CTL同步控制信号必须连续；图像无抖动跳跃，色彩无突变，编辑点处图像稳定。信噪比：图像信噪比不低于55dB，无明显杂波。色调：白平衡正确，无明显偏色，多机拍摄的镜头衔接处无明显色差。视频电平：视频全讯号幅度为1Ⅴp-p，最大不超过1.1Ⅴp-p。其中，消隐电平为0V时，白电平幅度0.7Ⅴp-p，同步信号-0.3V，色同步信号幅度0.3Vp-p（以消隐线上下对称），全片一致；"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "一、课程资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-039",
+        "category": "DELIVERY",
+        "text": "（1）视频编码方式H.264.MP4（视频压缩采用H.264编码方式，封装格式采用MP4），视频分辨率提交的高清成片不低于1920*1080像素，同时还需标清成片分辨率不低于720*480像素的标清文件，视频码率8Mbps以上，视频帧率不低……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第391行 一、课程资源建设要求 · （无符号）（1）",
+            "quote": "（1）视频编码方式H.264.MP4（视频压缩采用H.264编码方式，封装格式采用MP4），视频分辨率提交的高清成片不低于1920*1080像素，同时还需标清成片分辨率不低于720*480像素的标清文件，视频码率8Mbps以上，视频帧率不低于25fps，提供片头设计和制作；"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "一、课程资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-040",
+        "category": "DELIVERY",
+        "text": "（1）音频格式采用线性高级音频编码格式，LinearAAC（AdvancedAudioCoding）；音频采样率不低于48KHz；音频码率不低于1.4Mbps；",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第393行 一、课程资源建设要求 · （无符号）（1）",
+            "quote": "（1）音频格式采用线性高级音频编码格式，LinearAAC（AdvancedAudioCoding）；音频采样率不低于48KHz；音频码率不低于1.4Mbps；"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "一、课程资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-041",
+        "category": "DELIVERY",
+        "text": "（1）支持数字人在移动小程序端呈现，小程序内可展示定制的老师数字人形象及AI助教功能，加载预设开场白，同时数字人形象适配小程序界面特性。（提供所投真实产品的功能截图证明材料）",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第396行 一、课程资源建设要求 · （无符号）（1）",
+            "quote": "（1）支持数字人在移动小程序端呈现，小程序内可展示定制的老师数字人形象及AI助教功能，加载预设开场白，同时数字人形象适配小程序界面特性。（提供所投真实产品的功能截图证明材料）"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "一、课程资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "功能截图/证明材料"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-042",
+        "category": "DELIVERY",
+        "text": "▲（1）系统支持设置课程能力目标，课程能力目标包含课程目标描述、课程目标拆解、课程目标详情。其中课程目标拆解课设置主能力目标、子能力目标、关联知识点、覆盖问题等，并通过系统统计每个能力目标的知识点覆盖率等，同时在一门课程中能力目标课数量设置……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第399行 二、智慧教学体系 · ▲（1）",
+            "quote": "▲（1）系统支持设置课程能力目标，课程能力目标包含课程目标描述、课程目标拆解、课程目标详情。其中课程目标拆解课设置主能力目标、子能力目标、关联知识点、覆盖问题等，并通过系统统计每个能力目标的知识点覆盖率等，同时在一门课程中能力目标课数量设置不设上限，可根据实际使用需要设置多个主能力目标与子能力目标。（提供所投真实产品的功能截图证明材料并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "二、智慧教学体系",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-043",
+        "category": "DELIVERY",
+        "text": "（1）支持在编辑单个知识点教学资源时，支持通过AI核心算法利用人工智能技术自动推荐知识点相关的教学视频片段、电子教材片段，方便用户快速选择，丰富知识点资源，推荐的资源需要包含资源的名称、来自课程名称、学校名称、教师、章节信息、视频时长、引用……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第401行 二、智慧教学体系 · （无符号）（1）",
+            "quote": "（1）支持在编辑单个知识点教学资源时，支持通过AI核心算法利用人工智能技术自动推荐知识点相关的教学视频片段、电子教材片段，方便用户快速选择，丰富知识点资源，推荐的资源需要包含资源的名称、来自课程名称、学校名称、教师、章节信息、视频时长、引用状态，对不合适的视频资源可设置“不再推荐”"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "二、智慧教学体系",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-044",
+        "category": "DELIVERY",
+        "text": "▲（2）为推进学院新形态数字化教材的建设，供应商所提供的知识图谱建设服务需支持新形态教材建设。供应商需提供已制作完成、出版的新形态教材与知识图谱融合案例至少4个，新形态教材需包含可视化章节知识地图、数字教材知识口令、教材整体知识图谱等内容，……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第402行 二、智慧教学体系 · ▲（2）",
+            "quote": "▲（2）为推进学院新形态数字化教材的建设，供应商所提供的知识图谱建设服务需支持新形态教材建设。供应商需提供已制作完成、出版的新形态教材与知识图谱融合案例至少4个，新形态教材需包含可视化章节知识地图、数字教材知识口令、教材整体知识图谱等内容，其中知识口令可支持学生基于知识与资源内容扩展学习。（提供已建设完成的新形态教材实体书证明材料：实体书封面页图片、含知识口令关键页图片、图书ISBN、出版社名称）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "二、智慧教学体系",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-045",
+        "category": "DELIVERY",
+        "text": "▲（1）支持 AI 知识库资源解析与应用：AI 知识库内的资源经解析后，可被课程专属 AI 助教和智能体利用，借助先进解析技术，确保资源能够被精准处理，协助AI智能体生成更精准的回答，在回答时，答案从知识库中进行回复。（提供所投真实产品的功……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第404行 二、智慧教学体系 · ▲（1）",
+            "quote": "▲（1）支持 AI 知识库资源解析与应用：AI 知识库内的资源经解析后，可被课程专属 AI 助教和智能体利用，借助先进解析技术，确保资源能够被精准处理，协助AI智能体生成更精准的回答，在回答时，答案从知识库中进行回复。（提供所投真实产品的功能截图证明材料并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "二、智慧教学体系",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-046",
+        "category": "DELIVERY",
+        "text": "▲（1）工具箱应能为师生提供丰富实用的AI工具数量不少于60种，包括辅助备课、辅助出题与评估、辅助资源与科研等类型。具体应具备AI生成教案、AI出题、AI批阅、AI自动出卷、AI生成思政案例、AI创作PPT、AI文档问答、AI写作助手、AI……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第407行 三、AI模块 · ▲（1）",
+            "quote": "▲（1）工具箱应能为师生提供丰富实用的AI工具数量不少于60种，包括辅助备课、辅助出题与评估、辅助资源与科研等类型。具体应具备AI生成教案、AI出题、AI批阅、AI自动出卷、AI生成思政案例、AI创作PPT、AI文档问答、AI写作助手、AI生成大纲、AI阅读助手、AI公式识别、AI知识萃取等相关功能。（提供所投真实产品的功能截图证明材料并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "三、AI模块",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-047",
+        "category": "DELIVERY",
+        "text": "（2）AI课程PPT自动构建应支持选取相关知识点，根据知识图谱建设的内容，为相关知识点生成教学大纲，并根据大纲内容自动生成可编辑的ppt课件。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第408行 三、AI模块 · （无符号）（2）",
+            "quote": "（2）AI课程PPT自动构建应支持选取相关知识点，根据知识图谱建设的内容，为相关知识点生成教学大纲，并根据大纲内容自动生成可编辑的ppt课件。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "三、AI模块",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-048",
+        "category": "DELIVERY",
+        "text": "（3）AI资源发现功能应支持对知识点进行学术资料的推荐，资源包括且不限于视频、论文、学术报告等。AI实现公开领域、第三方资源的搜索与发现，如校外慕课、学术文献、网站资源等，点击后一键链接跳转至资源平台。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第409行 三、AI模块 · （无符号）（3）",
+            "quote": "（3）AI资源发现功能应支持对知识点进行学术资料的推荐，资源包括且不限于视频、论文、学术报告等。AI实现公开领域、第三方资源的搜索与发现，如校外慕课、学术文献、网站资源等，点击后一键链接跳转至资源平台。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "三、AI模块",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-049",
+        "category": "DELIVERY",
+        "text": "▲（4）系统支持筛选搜索结果来源，资源筛选来源包含课程、知乎、电子书、知网、百科、B站、切片模型、国家法律法规、北大法宝、mooc平台、百度知道、资讯、题库内容。（提供所投真实产品的功能截图证明材料并加盖供应商公章）",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第410行 三、AI模块 · ▲（4）",
+            "quote": "▲（4）系统支持筛选搜索结果来源，资源筛选来源包含课程、知乎、电子书、知网、百科、B站、切片模型、国家法律法规、北大法宝、mooc平台、百度知道、资讯、题库内容。（提供所投真实产品的功能截图证明材料并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "三、AI模块",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "功能截图/证明材料",
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-050",
+        "category": "DELIVERY",
+        "text": "▲（5）支持AI出题功能支持根据知识点及参考内容两种出题模式。根据知识点出题模式支持教师针对教学课程图谱中选择指定知识点，系统参考知识点教学内容生成与知识点相关的题目，该出题模式支持普通模式及知识库模式两种模式；根据参考内容出题模式支持自定……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第411行 三、AI模块 · ▲（5）",
+            "quote": "▲（5）支持AI出题功能支持根据知识点及参考内容两种出题模式。根据知识点出题模式支持教师针对教学课程图谱中选择指定知识点，系统参考知识点教学内容生成与知识点相关的题目，该出题模式支持普通模式及知识库模式两种模式；根据参考内容出题模式支持自定义的文本描述或上传的参考资料，基于相关内容生成题目。两种出题模式皆支持单选题、多选题、判断题、填空题四种题型下的单一题型出题及混合式题型出题，支持理论题、计算题、外文题三种出题偏好设置。针对生成的题目，支持所有题目或单个题目重新生成和加入题库，支持一键导出所有题目。（提供所投真实产品的功能截图证明材料并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "三、AI模块",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-051",
+        "category": "DELIVERY",
+        "text": "▲（1）具备智慧课程运行推广能力，平台中已运行对外推广的智慧课程数量不低于3000门，不包含基于知识融合运行的共享课与翻转课。（提供所投真实产品的功能截图证明材料并加盖供应商公章）",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第413行 三、AI模块 · ▲（1）",
+            "quote": "▲（1）具备智慧课程运行推广能力，平台中已运行对外推广的智慧课程数量不低于3000门，不包含基于知识融合运行的共享课与翻转课。（提供所投真实产品的功能截图证明材料并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "三、AI模块",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [
+          "功能截图/证明材料",
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-052",
+        "category": "DELIVERY",
+        "text": "（2）支持用户一键登录小程序进行学习：已经进入知识图谱班级的学生，可一键进入微信小程序，对于课程内容进行学习，学习内容包含：动态知识图谱查看、教学任务查看、知识点资源学习、知识点题目练习、考试题目练习等。微信小程序与网页版互通学习数据与记录……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第414行 三、AI模块 · （无符号）（2）",
+            "quote": "（2）支持用户一键登录小程序进行学习：已经进入知识图谱班级的学生，可一键进入微信小程序，对于课程内容进行学习，学习内容包含：动态知识图谱查看、教学任务查看、知识点资源学习、知识点题目练习、考试题目练习等。微信小程序与网页版互通学习数据与记录。（提供所投真实产品的功能截图证明材料并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "三、AI模块",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-053",
+        "category": "DELIVERY",
+        "text": "（3）支持用户基于知识图谱创建多个课程版本，自定义设置版本名称、选择知识点、选题问题图谱建设内容、选择能力图谱建设内容、设置考核知识点。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第415行 三、AI模块 · （无符号）（3）",
+            "quote": "（3）支持用户基于知识图谱创建多个课程版本，自定义设置版本名称、选择知识点、选题问题图谱建设内容、选择能力图谱建设内容、设置考核知识点。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "三、AI模块",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-054",
+        "category": "DELIVERY",
+        "text": "▲（1）支持教师团队自主构建课件库中心，进行私有课件库和课程课件库的分区管理，满足教师课件资源私有保护和公开共享的多元场景需求，支持课件共享范围进一步分层，在发布给教师团队基础上，进一步分享给特定班级学生。（提供所投真实产品的功能截图证明材……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第417行 三、AI模块 · ▲（1）",
+            "quote": "▲（1）支持教师团队自主构建课件库中心，进行私有课件库和课程课件库的分区管理，满足教师课件资源私有保护和公开共享的多元场景需求，支持课件共享范围进一步分层，在发布给教师团队基础上，进一步分享给特定班级学生。（提供所投真实产品的功能截图证明材料并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "三、AI模块",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "功能截图/证明材料"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-055",
+        "category": "DELIVERY",
+        "text": "▲（1）一键推课：支持老师通过供应商所提供的课程平台APP和小程序两种途径分享课程海报、手机端H5课程主页、课程小程序页面等，让更多学习者学习。供应商提供通过手机端APP分享小程序页面、课程海报的详细操作说明及操作截图。（供应商提供以上对应……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第420行 四、课程整体运行使用服务 · ▲（1）",
+            "quote": "▲（1）一键推课：支持老师通过供应商所提供的课程平台APP和小程序两种途径分享课程海报、手机端H5课程主页、课程小程序页面等，让更多学习者学习。供应商提供通过手机端APP分享小程序页面、课程海报的详细操作说明及操作截图。（供应商提供以上对应功能截图并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "四、课程整体运行使用服务",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-056",
+        "category": "DELIVERY",
+        "text": "（2）为保障校方课程建设团队符合国家级精品课程申报的条件，提高课程建设运行推广水平，供应商承诺能够协助课程上线“国家高等教育智慧教育平台”（单独提供承诺函并加盖供应商公章）。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第421行 四、课程整体运行使用服务 · （无符号）（2）",
+            "quote": "（2）为保障校方课程建设团队符合国家级精品课程申报的条件，提高课程建设运行推广水平，供应商承诺能够协助课程上线“国家高等教育智慧教育平台”（单独提供承诺函并加盖供应商公章）。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "四、课程整体运行使用服务",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-057",
+        "category": "DELIVERY",
+        "text": "（1）课程运行平台至少应提供：学习进度、作业考试、见面课、课程论坛、成绩管理、课程事务、学籍管理、我的题库、课程资料、招生管理、教学计划、教学运行、学情分析等基本功能模块且运行过程中和服务升级后不增加额外费用。（提供相关13个功能模块平台功……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第423行 四、课程整体运行使用服务 · （无符号）（1）",
+            "quote": "（1）课程运行平台至少应提供：学习进度、作业考试、见面课、课程论坛、成绩管理、课程事务、学籍管理、我的题库、课程资料、招生管理、教学计划、教学运行、学情分析等基本功能模块且运行过程中和服务升级后不增加额外费用。（提供相关13个功能模块平台功能截图并加盖供应商公章）"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "四、课程整体运行使用服务",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-058",
+        "category": "DELIVERY",
+        "text": "█（1）在线开放课程需提供见面课服务，全国直播见面课都需在本校完成，供应商需在本校改造完成一间具有直播见面课功能的直播教室。要能与共享课程直播互动网络完全无缝对接；能与全国高等学校直播互动教室实现直播互动，实现直播互动教学，供应商成交后需根……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第425行 五、项目执行过程中的相关要求 · █（1）",
+            "quote": "█（1）在线开放课程需提供见面课服务，全国直播见面课都需在本校完成，供应商需在本校改造完成一间具有直播见面课功能的直播教室。要能与共享课程直播互动网络完全无缝对接；能与全国高等学校直播互动教室实现直播互动，实现直播互动教学，供应商成交后需根据采购方要求进行功能验证，使用方核实真实性，并签订验证真实协议。如不能满足，上报相关部门处理，学校保留进一步采取法律手段的权利（提供承诺函原件加盖供应商公章）。"
+          }
+        ],
+        "severity_symbol": "█",
+        "deduction_per_item": 5.0,
+        "source_chapter": "五、项目执行过程中的相关要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-059",
+        "category": "DELIVERY",
+        "text": "█（2）供应商为采购人提供在线精品课程建设、课程推广运行服务后，应保证采购人课程符合职业教育国家在线精品课程各项评审指标。（供应商提供课程评审免密登陆主页网址和与职业教育精品在线课程评审一致的课程数据信息表在平台上的截图并加盖供应商公章。课……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第426行 五、项目执行过程中的相关要求 · █（2）",
+            "quote": "█（2）供应商为采购人提供在线精品课程建设、课程推广运行服务后，应保证采购人课程符合职业教育国家在线精品课程各项评审指标。（供应商提供课程评审免密登陆主页网址和与职业教育精品在线课程评审一致的课程数据信息表在平台上的截图并加盖供应商公章。课程评审免密登陆主页备查）"
+          }
+        ],
+        "severity_symbol": "█",
+        "deduction_per_item": 5.0,
+        "source_chapter": "五、项目执行过程中的相关要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-060",
+        "category": "DELIVERY",
+        "text": "█（3）能支持跨区域开展同步课堂和“跨域同步课堂计划”2.0对口学校和课程的对接服务。建立学校间互动和互访，达成课程、课堂教学一致，联动同步课堂。需要与教育部跨域同步课堂平台对接，将我校优秀慕课共享到课程共建的其他高校，对接受援助的高校授课……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第427行 五、项目执行过程中的相关要求 · █（3）",
+            "quote": "█（3）能支持跨区域开展同步课堂和“跨域同步课堂计划”2.0对口学校和课程的对接服务。建立学校间互动和互访，达成课程、课堂教学一致，联动同步课堂。需要与教育部跨域同步课堂平台对接，将我校优秀慕课共享到课程共建的其他高校，对接受援助的高校授课或学术讲座服务；供应商提供至少5个高校跨域同步课堂同类项目的成果案例佐证材料，可提供项目成果公示文件或服务履约纪实材料或院校出具的服务成效说明等作为证明材料。供应商需根据采购方要求进行功能验证。如不能满足，上报相关部门处理，学校保留进一步采取法律手段的权利。同时提供跨域同步课堂服务三年承诺函原件加盖供应商公章，未提供不得分。"
+          }
+        ],
+        "severity_symbol": "█",
+        "deduction_per_item": 5.0,
+        "source_chapter": "五、项目执行过程中的相关要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-061",
+        "category": "DELIVERY",
+        "text": "▲（1）提供资源运行共享平台，包括学生及教师账号的单点登录、资源理论学习、实验安排、实验操作、实验报告填写与提交、实验批改、实验成绩管理、资源学习情况统计、优秀实验案例展示等。（提供以上九个对应功能截图并加盖公章进行佐证）",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第429行 六、虚拟仿真实践教学场景打造与H5资源建设 · ▲（1）",
+            "quote": "▲（1）提供资源运行共享平台，包括学生及教师账号的单点登录、资源理论学习、实验安排、实验操作、实验报告填写与提交、实验批改、实验成绩管理、资源学习情况统计、优秀实验案例展示等。（提供以上九个对应功能截图并加盖公章进行佐证）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "六、虚拟仿真实践教学场景打造与H5资源建设",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "功能截图/证明材料",
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-062",
+        "category": "DELIVERY",
+        "text": "▲（2）学生能够通过互联网在线开放共享平台完成整个实验流程，以及协助教师完成实验资源相关的教学工作，协助校方的虚拟仿真资源实现校内外的线上运行管理、虚仿资源整合。（提供共享平台链接、截图、备案信息并加盖公章进行佐证）",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第430行 六、虚拟仿真实践教学场景打造与H5资源建设 · ▲（2）",
+            "quote": "▲（2）学生能够通过互联网在线开放共享平台完成整个实验流程，以及协助教师完成实验资源相关的教学工作，协助校方的虚拟仿真资源实现校内外的线上运行管理、虚仿资源整合。（提供共享平台链接、截图、备案信息并加盖公章进行佐证）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "六、虚拟仿真实践教学场景打造与H5资源建设",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-063",
+        "category": "DELIVERY",
+        "text": "▲（3）要求开发的虚拟仿真资源可与校方指定的在线视频课程有机结合，形成理论认知与实际操作相结合的课程内容，提高课程教学和学生的学习效果。（提供对应功能截图并加盖公章进行佐证）",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第431行 六、虚拟仿真实践教学场景打造与H5资源建设 · ▲（3）",
+            "quote": "▲（3）要求开发的虚拟仿真资源可与校方指定的在线视频课程有机结合，形成理论认知与实际操作相结合的课程内容，提高课程教学和学生的学习效果。（提供对应功能截图并加盖公章进行佐证）"
+          }
+        ],
+        "severity_symbol": "▲",
+        "deduction_per_item": 1.5,
+        "source_chapter": "六、虚拟仿真实践教学场景打造与H5资源建设",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "功能截图/证明材料",
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-064",
+        "category": "DELIVERY",
+        "text": "（4）要求虚拟仿真资源主界面定制，支持动态UI界面定制化开发、AI助教形象定制化，提供不少于三门虚仿课程界面和AI助教形象的定制案例。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第432行 六、虚拟仿真实践教学场景打造与H5资源建设 · （无符号）（4）",
+            "quote": "（4）要求虚拟仿真资源主界面定制，支持动态UI界面定制化开发、AI助教形象定制化，提供不少于三门虚仿课程界面和AI助教形象的定制案例。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "六、虚拟仿真实践教学场景打造与H5资源建设",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-065",
+        "category": "DELIVERY",
+        "text": "（1）模型建设：高精度建模：设备、仪器等模型需符合真实尺寸（毫米级误差），拓扑结构合理，避免破面或重叠。 LOD（Level of Detail）分级：根据距离动态切换模型精度（如远距离显示简化模型，近距离展示高模）。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第434行 七、虚拟仿真资源建设要求 · （无符号）（1）",
+            "quote": "（1）模型建设：高精度建模：设备、仪器等模型需符合真实尺寸（毫米级误差），拓扑结构合理，避免破面或重叠。 LOD（Level of Detail）分级：根据距离动态切换模型精度（如远距离显示简化模型，近距离展示高模）。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "七、虚拟仿真资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-066",
+        "category": "DELIVERY",
+        "text": "（2）模型规范要求：1.文件格式：通用格式（FBX、OBJ、GLTF）优先，支持跨平台引擎（Unity、Unreal）。命名规则：层级结构清晰（如“设备_部件_编号”），材质球与贴图命名一致。UV展开：避免拉伸，贴图利用率需达80%以上，支……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第435行 七、虚拟仿真资源建设要求 · （无符号）（2）",
+            "quote": "（2）模型规范要求：1.文件格式：通用格式（FBX、OBJ、GLTF）优先，支持跨平台引擎（Unity、Unreal）。命名规则：层级结构清晰（如“设备_部件_编号”），材质球与贴图命名一致。UV展开：避免拉伸，贴图利用率需达80%以上，支持2K/4K贴图分辨率。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "七、虚拟仿真资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-067",
+        "category": "DELIVERY",
+        "text": "（3）材质与贴图要求： PBR材质：金属度（Metallic）、粗糙度（Roughness）等参数需符合物理规律，支持HDR环光反射。动态贴图：如屏幕空间反射（SSR）、视差贴图（Parallax Mapping）增强真实感。透明材质优化：……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第436行 七、虚拟仿真资源建设要求 · （无符号）（3）",
+            "quote": "（3）材质与贴图要求： PBR材质：金属度（Metallic）、粗糙度（Roughness）等参数需符合物理规律，支持HDR环光反射。动态贴图：如屏幕空间反射（SSR）、视差贴图（Parallax Mapping）增强真实感。透明材质优化：Alpha通道处理需兼容不同渲染管线（如Forward/Deferred Rendering）。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "七、虚拟仿真资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-068",
+        "category": "DELIVERY",
+        "text": "（4）模型优化要求：合并网格：减少Draw Call（如静态物体合并为单一Mesh）。碰撞体简化：使用Box/Sphere碰撞体替代复杂Mesh Collider，提升物理计算效率。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第437行 七、虚拟仿真资源建设要求 · （无符号）（4）",
+            "quote": "（4）模型优化要求：合并网格：减少Draw Call（如静态物体合并为单一Mesh）。碰撞体简化：使用Box/Sphere碰撞体替代复杂Mesh Collider，提升物理计算效率。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "七、虚拟仿真资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-069",
+        "category": "DELIVERY",
+        "text": "（1）关键帧动画：时间轴精确到帧（24/30/60 FPS），支持缓入缓出（Ease In/Out）。顶点动画：适用于流体、软体变形（如布料模拟、液体流动）。程序化动画：通过代码驱动（如机械臂运动轨迹算法）。动画融合：无缝切换不同动作（行走……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第439行 七、虚拟仿真资源建设要求 · （无符号）（1）",
+            "quote": "（1）关键帧动画：时间轴精确到帧（24/30/60 FPS），支持缓入缓出（Ease In/Out）。顶点动画：适用于流体、软体变形（如布料模拟、液体流动）。程序化动画：通过代码驱动（如机械臂运动轨迹算法）。动画融合：无缝切换不同动作（行走、奔跑、跳跃），支持运动捕捉（Mocap）数据与程序化动画的结合。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "七、虚拟仿真资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-070",
+        "category": "DELIVERY",
+        "text": "（2）交互动画：事件触发：用户操作（点击、拖拽）触发动画状态机（Animation State Machine），支持中断和过渡。物理模拟：刚体动力学（如物体坠落）、粒子系统（烟雾、火焰）需与场景交互（如风力影响）。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第440行 七、虚拟仿真资源建设要求 · （无符号）（2）",
+            "quote": "（2）交互动画：事件触发：用户操作（点击、拖拽）触发动画状态机（Animation State Machine），支持中断和过渡。物理模拟：刚体动力学（如物体坠落）、粒子系统（烟雾、火焰）需与场景交互（如风力影响）。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "七、虚拟仿真资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-071",
+        "category": "DELIVERY",
+        "text": "（3）性能要求：多边形优化：通过LOD（Level of Detail）技术动态调整模型精度，平衡视觉效果与渲染性能。资源压缩：贴图压缩（BC7/ASTC）、动画数据精简（关键帧插值）以减少内存占用。动画压缩：使用骨骼动画压缩算法（如Uni……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第441行 七、虚拟仿真资源建设要求 · （无符号）（3）",
+            "quote": "（3）性能要求：多边形优化：通过LOD（Level of Detail）技术动态调整模型精度，平衡视觉效果与渲染性能。资源压缩：贴图压缩（BC7/ASTC）、动画数据精简（关键帧插值）以减少内存占用。动画压缩：使用骨骼动画压缩算法（如Unity的Animator Compression），减少内存占用。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "七、虚拟仿真资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-072",
+        "category": "DELIVERY",
+        "text": "（4）程序交互：交互准确性与稳定性要求：系统交互触发成功率需 ≥99%（通过重复测试100次以上验证），碰撞检测误判率 ≤0.5%；支持物理交互稳定响应，误触发率极低。支持H5页面嵌入与自定义交互：可将3D交互模块封装为 WebGL 模块嵌……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第442行 七、虚拟仿真资源建设要求 · （无符号）（4）",
+            "quote": "（4）程序交互：交互准确性与稳定性要求：系统交互触发成功率需 ≥99%（通过重复测试100次以上验证），碰撞检测误判率 ≤0.5%；支持物理交互稳定响应，误触发率极低。支持H5页面嵌入与自定义交互：可将3D交互模块封装为 WebGL 模块嵌入 H5 页面，支持轻量化加载、点击互动、浮层展示等功能，提升宣传效率与用户互动体验。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "七、虚拟仿真资源建设要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-073",
+        "category": "DELIVERY",
+        "text": "●（1）要求运行平台附带虚仿课程资源库，需具备至少100 门以上的虚拟仿真课程资源库，方便校内学生随时加入学习更多感兴趣虚仿课程，且资源库随时添加更新资源，不限制虚仿资源门数，且需提供 3D 模型资源库，提供有在线预览功能的模型，提供至少 ……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第444行 八、虚拟仿真资源运行要求 · ●（1）",
+            "quote": "●（1）要求运行平台附带虚仿课程资源库，需具备至少100 门以上的虚拟仿真课程资源库，方便校内学生随时加入学习更多感兴趣虚仿课程，且资源库随时添加更新资源，不限制虚仿资源门数，且需提供 3D 模型资源库，提供有在线预览功能的模型，提供至少 120个模型资源。"
+          }
+        ],
+        "severity_symbol": "●",
+        "deduction_per_item": 0.5,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-074",
+        "category": "DELIVERY",
+        "text": "（2）为保障网络安全，平台需要满足三级信息安全等级保护资质要求，并提供三级等保备案证明。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第445行 八、虚拟仿真资源运行要求 · （无符号）（2）",
+            "quote": "（2）为保障网络安全，平台需要满足三级信息安全等级保护资质要求，并提供三级等保备案证明。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": 0.4,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "证书原件/复印件"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-075",
+        "category": "DELIVERY",
+        "text": "●（3）为更好教学，要求现场演示虚拟仿真内容可与共享课进行联动，即可通过虚拟仿真项目跳转到对应的共享课中，也可从共享课跳转到对应的虚拟仿真资源中，形成理论与实际操作的结合，以此来提高教学效果。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第446行 八、虚拟仿真资源运行要求 · ●（3）",
+            "quote": "●（3）为更好教学，要求现场演示虚拟仿真内容可与共享课进行联动，即可通过虚拟仿真项目跳转到对应的共享课中，也可从共享课跳转到对应的虚拟仿真资源中，形成理论与实际操作的结合，以此来提高教学效果。"
+          }
+        ],
+        "severity_symbol": "●",
+        "deduction_per_item": 0.5,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "现场演示"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-076",
+        "category": "DELIVERY",
+        "text": "●（4）要求现场演示虚拟仿真资源与智慧课程的深度融合，即虚拟仿真资源能够以实验图谱的形式在智慧课程主页中进行呈现，用户通过实验图谱可明确了解到每个实验的实验步骤、实验子阶段、阶段及考核占比、相关知识点，并且可通过实验图谱快速进入对应的虚拟仿……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第447行 八、虚拟仿真资源运行要求 · ●（4）",
+            "quote": "●（4）要求现场演示虚拟仿真资源与智慧课程的深度融合，即虚拟仿真资源能够以实验图谱的形式在智慧课程主页中进行呈现，用户通过实验图谱可明确了解到每个实验的实验步骤、实验子阶段、阶段及考核占比、相关知识点，并且可通过实验图谱快速进入对应的虚拟仿真资源中；实验报告也需在智慧课程主页中进行呈现，支持在线预览实验报告内容以及下载实验报告。"
+          }
+        ],
+        "severity_symbol": "●",
+        "deduction_per_item": 0.5,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "现场演示"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-077",
+        "category": "DELIVERY",
+        "text": "●（5）要求虚拟仿真运行平台支持“一步生成课程”，虚仿资源上线后自动生成1门可运行的翻转课，无需老师自行建设，同步实验资源，一键生成实验任务；",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第448行 八、虚拟仿真资源运行要求 · ●（5）",
+            "quote": "●（5）要求虚拟仿真运行平台支持“一步生成课程”，虚仿资源上线后自动生成1门可运行的翻转课，无需老师自行建设，同步实验资源，一键生成实验任务；"
+          }
+        ],
+        "severity_symbol": "●",
+        "deduction_per_item": 0.5,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-078",
+        "category": "DELIVERY",
+        "text": "●（6）要求现场逐一演示虚拟仿真运行平台具备新建实验功能,可进行基本信息、实验资源、实验设置，其中基本信息内容包括实验标题、实验描述内容；实验资源支持进行我的虚仿实验添加、虚仿资源库添加、虚仿实验链接添加、线下实验任务添加；实验设置支持关联……",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第449行 八、虚拟仿真资源运行要求 · ●（6）",
+            "quote": "●（6）要求现场逐一演示虚拟仿真运行平台具备新建实验功能,可进行基本信息、实验资源、实验设置，其中基本信息内容包括实验标题、实验描述内容；实验资源支持进行我的虚仿实验添加、虚仿资源库添加、虚仿实验链接添加、线下实验任务添加；实验设置支持关联学习资源，选择是否允许重复实验、允许迟交、选择实验班级及运行时间。"
+          }
+        ],
+        "severity_symbol": "●",
+        "deduction_per_item": 0.5,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "现场演示"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-079",
+        "category": "DELIVERY",
+        "text": "●（7）要求虚拟仿真系统具备AI助教功能，可调用AI 助教进行问题咨询，AI 助教与虚拟仿真系统能进行深度融合，即可在主页进行AI助教功能，也可在虚仿操作过程中进行AI助教功能的使用。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第450行 八、虚拟仿真资源运行要求 · ●（7）",
+            "quote": "●（7）要求虚拟仿真系统具备AI助教功能，可调用AI 助教进行问题咨询，AI 助教与虚拟仿真系统能进行深度融合，即可在主页进行AI助教功能，也可在虚仿操作过程中进行AI助教功能的使用。"
+          }
+        ],
+        "severity_symbol": "●",
+        "deduction_per_item": 0.5,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-080",
+        "category": "DELIVERY",
+        "text": "●（8）要求演示定制化虚拟仿真主页功能，支持UI界面定制化开发、AI助教形象定制化，提供不少于三门虚仿资源主界面和AI助教形象的定制案例。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第451行 八、虚拟仿真资源运行要求 · ●（8）",
+            "quote": "●（8）要求演示定制化虚拟仿真主页功能，支持UI界面定制化开发、AI助教形象定制化，提供不少于三门虚仿资源主界面和AI助教形象的定制案例。"
+          }
+        ],
+        "severity_symbol": "●",
+        "deduction_per_item": 0.5,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-081",
+        "category": "DELIVERY",
+        "text": "●（9）要求具有学习记录管理功能，学生练习情况，按照班级列出平时训练情况汇总。全部实验日志，按时间排显示学生的实验详情，支持查看实验报告。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第452行 八、虚拟仿真资源运行要求 · ●（9）",
+            "quote": "●（9）要求具有学习记录管理功能，学生练习情况，按照班级列出平时训练情况汇总。全部实验日志，按时间排显示学生的实验详情，支持查看实验报告。"
+          }
+        ],
+        "severity_symbol": "●",
+        "deduction_per_item": 0.5,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-082",
+        "category": "DELIVERY",
+        "text": "●（10）要求演示虚拟仿真资源都有独立的课程页，并可根据老师在后台设置的内容，展示实验对应的基本信息，主要包括：项目介绍、师资介绍、实验指南、实验资源、考核要求、优秀案例展示、学习记录、数据分析等。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第453行 八、虚拟仿真资源运行要求 · ●（10）",
+            "quote": "●（10）要求演示虚拟仿真资源都有独立的课程页，并可根据老师在后台设置的内容，展示实验对应的基本信息，主要包括：项目介绍、师资介绍、实验指南、实验资源、考核要求、优秀案例展示、学习记录、数据分析等。"
+          }
+        ],
+        "severity_symbol": "●",
+        "deduction_per_item": 0.5,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-083",
+        "category": "DELIVERY",
+        "text": "●（11）要求演示问答论坛功能，支持对实验进行讨论，发表问题，并可以对学生讨论进行回答和管理，设置精华和置顶操作。",
+        "mandatory": false,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第454行 八、虚拟仿真资源运行要求 · ●（11）",
+            "quote": "●（11）要求演示问答论坛功能，支持对实验进行讨论，发表问题，并可以对学生讨论进行回答和管理，设置精华和置顶操作。"
+          }
+        ],
+        "severity_symbol": "●",
+        "deduction_per_item": 0.5,
+        "source_chapter": "八、虚拟仿真资源运行要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-084",
+        "category": "DELIVERY",
+        "text": "★ 服务期限：自合同签订之日起300日。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第465行 3.3.2 商务要求 · 服务期限",
+            "quote": "自合同签订之日起300日"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "3.3.2 商务要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-085",
+        "category": "DELIVERY",
+        "text": "★ 服务地点：四川铁道职业学院成都校区。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第466行 3.3.2 商务要求 · 服务地点",
+            "quote": "四川铁道职业学院成都校区"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "3.3.2 商务要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-086",
+        "category": "DELIVERY",
+        "text": "★ 验收主体为四川铁道职业学院；供应商提出验收申请之日起10日内组织验收；采购人自行验收；一次性验收。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第467行 3.3.2 商务要求 · 验收、交付标准和方法",
+            "quote": "（1）履约验收主体：四川铁道职业学院。 （2）履约验收时间：供应商提出验收申请之日起10日内组织验收。 （3）验收组织方式：采购人组织本单位人员自行验收。 （4）履约验收程序：按磋商文件、响应文件及合同约定验收。 （5）是否组织专家参与验收：否 （6）技术履约验收内容：根据成交供应商针对本项目提供服务要求、标准是否达到采购文件约定的标准进行验收，若符合采购文件约定的服务要求、标准，签署质量验收同意意见。验收时如发现服务要求、标准不符合采购文件规定的标准及本合同规定之情形者，采购人应做出详尽的现场记录，由此产生的时间延误与有关费用由成交供应商承担，验收期限相应顺延。 （7）商务履约验收内容：根据……"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "3.3.2 商务要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-087",
+        "category": "DELIVERY",
+        "text": "★ 支付方式：分期付款。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第468行 3.3.2 商务要求 · 支付方式",
+            "quote": "分期付款"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "3.3.2 商务要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-088",
+        "category": "DELIVERY",
+        "text": "★ 付款进度：合同签订后30个工作日内付40%；项目建设完工且验收合格后30个工作日内付60%。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第470行 3.3.2 商务要求 · 付款进度安排",
+            "quote": "2付款条件：项目建设完工且验收合格，达到该付款条件起30个工作日内，支付合同总金额的60.00%"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "3.3.2 商务要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-089",
+        "category": "DELIVERY",
+        "text": "★ 供应商因疏忽/失职/过错造成采购人损失应承担全部赔偿责任；争议协商不成向采购人所在地人民法院起诉。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第471行 3.3.2 商务要求 · 违约责任与解决争议的方法",
+            "quote": "违约责任：①采购人及供应商双方必须遵守本合同并执行合同中的各项规定，保证本合同的正常履行。 ②如因供应商工作人员在履行职务过程中的的疏忽、失职、过错等故意或者过失原因给采购人造成损失或侵害，包括但不限于采购人本身的财产损失、由此而导致的采购人对任何第三方的法律责任等，供应商对此均应承担全部的赔偿责任。解决争议的方法：双方协商解决；协商不成时，双方可向采购人所在地人民法院提起诉讼。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "3.3.2 商务要求",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-090",
+        "category": "SCORING",
+        "text": "技术及服务指标（客观，48分）：完全满足3.2技术要求得48分；★为实质性参数不允许负偏离；▲每项不满足扣1.5分（共12条）、●每项不满足扣0.5分（共10条）、█每项不满足扣5分（共3条）、未标注符号每项不满足扣0.4分（共25条）。须用真实运行系统现场演示，PPT/word/图片/demo形式不得分，演示时间不超过20分钟。",
+        "mandatory": true,
+        "score": 48.0,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第624行 5.4.2 评审细则及标准",
+            "quote": "1.完全满足磋商文件第三章3.2.技术要求2服务要求与制作标准中技术参数与性能指标内容得48分。标注“★”为本项目实质性参数，不允许有负偏离。每有一项▲内容不满足扣1.5分（共12条），每有一项●内容不满足扣0.5分（共10条），每有一项█内容不满足扣5分（共3条），每有一项未标注符号的内容不满足扣0.4分（共25条）。（以最小单位序号（1）、（2）、（3）……为准。 注: （1）供应商应准备充分，现场演示可能用到的平台、设备、网络环境均由供应商自行准备，因网络、设备而导致的现场功能演示失败或出错均由供应商自行承担后果。 2.供应商应用真实运行系统平台演示，供应商须提供一体化平台，共享课程运行……"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "5.4.2 评审细则及标准",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "现场演示"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-091",
+        "category": "SCORING",
+        "text": "履约能力（客观，22分）：1）课程上线运行平台具备申报成功且运行的国家级线上一流本科课程和职业教育国家在线精品课程，151-250门得6分、251-350门得8分、351-450门得10分、451-550门得12分、551门及以上得15分；2）虚拟仿真相关软件著作权证书每个0.25分，最多得7分。",
+        "mandatory": true,
+        "score": 22.0,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第626行 5.4.2 评审细则及标准",
+            "quote": "1、本次采购项目旨在建设优质资源为采购人培育国家级精品课程，供应商提供的课程上线运行平台需具备通过该平台申报成功且运行的国家级线上一流本科课程和职业教育国家在线精品课程，课程数量在151-250的得6分，数量为251-350门的得 8 分，数量为351-450门的得 10分，数量为451-550门的得12分，数量为551门及以上的得15分，本项最多得 15分。 （注：①须提供ICP/IP地址/域名信息备案管理系统查询截图予及教育部公布的公示截图，公示截图须包括：课程名称、课程负责人、主要建设单位、主要开课平台4个维度）和对应的课程链接清单并加盖供应商电子签章。教育部公布的清单没有主要开课平台纬……"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "5.4.2 评审细则及标准",
+        "deliverable_group": null,
+        "quantity_semantics": "RANGE",
+        "verification_means": [
+          "证书原件/复印件"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-092",
+        "category": "SCORING",
+        "text": "类似业绩（客观，5分）：2023年1月1日至投标截止时间（以合同签订时间为准）承担过教学资源开发、数字教材制作类项目，每提供1个业绩得1分，最高5分；须提供合同关键页复印件。",
+        "mandatory": true,
+        "score": 5.0,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第627行 5.4.2 评审细则及标准",
+            "quote": "供应商自 2023年1月1日至投标截止时间（以合同签订时间为准），承担过类似的项目业绩： 每提供1 个业绩得1分，最高得5 分；注： （1）“类似业绩” 指教学资源开发、数字教材制作业绩； （2）业绩须提供合同关键页复印件（含项目名称、服务内容、签订时间、甲乙双方盖章页）作为证明材料，否则不得分。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "5.4.2 评审细则及标准",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "合同关键页复印件"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-093",
+        "category": "SCORING",
+        "text": "项目实施方案（主观，15分）：实施方案含①项目整体建设计划②课程资源建设流程③课程智慧升级建设流程④资源建设人员配置表⑤智慧课程人员配置表⑥项目运行培训方案，无缺项缺陷得9分；售后服务方案含①团队人员配置②保障方案③到场时间④管理办法，无缺项缺陷得6分。",
+        "mandatory": true,
+        "score": 15.0,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第628行 5.4.2 评审细则及标准",
+            "quote": "供应商针对本项目提供实施方案包含：①项目整体建设计划；②课程资源建设流程；③课程智慧升级建设流程；④资源建设人员配置表；⑤智慧课程人员配置表；⑥项目运行培训方案。 完全具备上述内容无缺项和缺陷的得9分，每缺少一项内容扣1.5分，各项中每有一处缺陷扣0.75分，扣完为止。 供应商针对本项目需提供售后服务方案包含： ①售后服务团队人员配置； ②售后服务保障方案； ③售后服务到场时间； ④售后服务管理办法。 完全具备上述内容无缺项和缺陷的得6分，每缺少一项内容扣1.5分，各项中每有一处缺陷扣1分，扣完为止。 注：以上提出的“缺陷”是指：存在项目名称错误、地点区域错误、内容与本项目需求不相关、内容所阐……"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "5.4.2 评审细则及标准",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-094",
+        "category": "SCORING",
+        "text": "报价得分（客观，10分）：报价得分=(基准价/评审价)×10；满足采购文件要求且评审价最低的为基准价。本项目不涉及价格扣除。",
+        "mandatory": true,
+        "score": 10.0,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第629行 5.4.2 评审细则及标准",
+            "quote": "报价得分=(基准价／评审价)×分值。满足采购文件要求且评审价最低的为基准价，因落实政府采购政策进行价格调整的，以调整后的价格计算基准价和评审价。注：不涉及价格扣除的评审价=最后报价，涉及价格扣除的评审价=最后报价×（1-扣除比例）。"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "5.4.2 评审细则及标准",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-095",
+        "category": "FORMAT",
+        "text": "响应文件按“投标响应文件分册”编制，格式详见第六章各附件。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第669行 第六章 响应文件格式 · 响应文件分册",
+            "quote": "分册名称：投标响应文件分册"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "第六章 响应文件格式",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-096",
+        "category": "FORMAT",
+        "text": "须提交响应文件封面。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第670行 第六章 响应文件格式 · 响应文件封面",
+            "quote": "详见附件：响应文件封面"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "第六章 响应文件格式",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-097",
+        "category": "FORMAT",
+        "text": "须提交投标（响应）函并完成电子签章。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第671行 第六章 响应文件格式 · 投标（响应）函",
+            "quote": "详见附件：投标（响应）函"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "第六章 响应文件格式",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "承诺函（加盖公章）"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-098",
+        "category": "FORMAT",
+        "text": "须提交中小企业声明函（本包专门面向中小企业）。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第672行 第六章 响应文件格式 · 中小企业声明函",
+            "quote": "详见附件：中小企业声明函"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "第六章 响应文件格式",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-099",
+        "category": "FORMAT",
+        "text": "须提交供应商应提交的相关证明材料（评审细则对应的证明材料）。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第675行 第六章 响应文件格式 · 供应商应提交的相关证明材料",
+            "quote": "详见附件：供应商应提交的相关证明材料"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "第六章 响应文件格式",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "功能截图/证明材料"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-100",
+        "category": "FORMAT",
+        "text": "须提交服务应答表（对应48分技术及服务指标）。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第676行 第六章 响应文件格式 · 服务应答表",
+            "quote": "详见附件：服务应答表"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "第六章 响应文件格式",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-101",
+        "category": "FORMAT",
+        "text": "须提交报价表。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第677行 第六章 响应文件格式 · 报价表",
+            "quote": "详见附件：报价表"
+          }
+        ],
+        "severity_symbol": null,
+        "deduction_per_item": null,
+        "source_chapter": "第六章 响应文件格式",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-102",
+        "category": "FORMAT",
+        "text": "须通过投标（响应）客户端编制响应文件并加盖电子印章、加密。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第150行 2.4.6 响应文件的编制、签章和加密",
+            "quote": "二、供应商通过四川政府采购网-下载专区下载投标（响应）客户端，使用投标（响应）客户端编制响应文件，完成响应文件编制、加盖电子印章和加密。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.4.6 响应文件的编制、签章和加密",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-103",
+        "category": "FORMAT",
+        "text": "响应有效期：自提交响应文件截止之日起不少于90天。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第90行 2.1 供应商须知附表 序号8",
+            "quote": "提交响应文件的截止之日起不少于 90 天。响应文件未明确响应有效期或者少于前述规定天数的，其响应文件按无效处理。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.1 供应商须知附表 序号8",
+        "deliverable_group": null,
+        "quantity_semantics": "AT_LEAST",
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-104",
+        "category": "DELIVERY",
+        "text": "采购预算及最高限价：采购包1预算金额650,000.00元；供应商报价不得超过磋商文件规定的预算金额，最高限价详见第三章，报价亦不得超过最高限价。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第66行 采购预算及最高限价",
+            "quote": "1\t采购预算及最高限价★\t本项目各包采购预算金额如下： 采购包1：650,000.00元 供应商报价不得超过磋商文件中规定的预算金额，采购人可以在采购预算内合理设定最高限价，供应商报价不得超过最高限价，最高限价详见第三章。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "采购预算及最高限价",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-105",
+        "category": "FORMAT",
+        "text": "投标（响应）保证金：本项目不收取投标（响应）保证金。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第80行 投标（响应）保证金",
+            "quote": "6\t投标（响应）保证金★\t本项目不收取投标（响应）保证金。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "投标（响应）保证金",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-106",
+        "category": "DELIVERY",
+        "text": "履约保证金：采购包1收取履约保证金，为合同金额的5.0%；可通过银行转账、支票/汇票/本票、保函/保险等形式缴纳；合同签订前向采购人支付，验收合格且不存在违约行为时可申请退还。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第81行 履约保证金",
+            "quote": "7\t履约保证金★\t采购包1：收取 本采购包履约保证金为合同金额的5.0% 合同签订前，中标（成交）供应商向采购人支付中标（成交）总金额的 5 %作为本合同履约保证金，履约保证金可以以银行转账，支票/汇票/本票，保函/保险等形式缴纳。中标（成交）供应商在验收合格且不存在任何违约行为的情况下，向采购人使用单位提出退还履约保证金申请，由采购人在20个工作日内一次性向中标（成交）供应商无息全额退还。若中标（成交）供应商违约，采购人可以先从履约保证金中扣除违约金，不足部分由中标（成交）供应商应另行支付，同时中标（成交）供应商应在3日内补足履约保证金。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "履约保证金",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-107",
+        "category": "DELIVERY",
+        "text": "代理服务费：本项目收取代理服务费，收取对象为成交供应商；以成交金额为计算基数，按成交金额×1.5%再下浮40%收取，由成交供应商向采购代理机构支付。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第91行 代理服务费",
+            "quote": "9\t代理服务费★\t本项目收取代理服务费 代理服务费收费标准：以中标金额作为计算基数，按照成交金额*1.5%基础上再下浮40%收取，由中标人向采购代理机构支付。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "代理服务费",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-108",
+        "category": "FORMAT",
+        "text": "2.4.2 计量单位：除磋商文件中另有规定外，本项目均采用国家法定的计量单位。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第137行 2.4.2 计量单位",
+            "quote": "2.4.2.计量单位★ 除磋商文件中另有规定外，本项目均采用国家法定的计量单位。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.4.2 计量单位",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-109",
+        "category": "FORMAT",
+        "text": "2.4.3 响应货币：本项目均以人民币报价。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第139行 2.4.3 响应货币",
+            "quote": "2.4.3.响应货币★ 本项目均以人民币报价。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.4.3 响应货币",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-110",
+        "category": "QUALIFICATION",
+        "text": "2.4.4 知识产权：供应商应保证本项目使用的任何技术、产品和服务不产生第三方知识产权纠纷，否则承担全部责任并赔偿采购人损失；采用自有或第三方知识成果的须提供开发接口与开发手册并承诺无限期支持，采购人享有使用权；使用非自有知识产权的，报价须包含合法使用费用。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第141行 2.4.4 知识产权",
+            "quote": "2.4.4.知识产权★ 一、供应商应保证在本项目中使用的任何技术、产品和服务（包括部分使用），不会产生因第三方提出侵犯其专利权、商标权或其它知识产权而引起的法律和经济纠纷，如存在前述情形，由供应商承担所有相关责任，并且赔偿由此给采购人带来的损失。采购人享有本项目实施过程中产生的知识成果及知识产权。 二、供应商将在采购项目实施过程中采用自有或者第三方知识成果的，使用该知识成果后，供应商需提供开发接口和开发手册等技术资料，并承诺提供无限期支持，采购人享有使用权（含采购人委托第三方在该项目后续开发的使用权）。 三、如使用供应商所不拥有的知识产权，则在报价中必须包括合法使用该知识产权的相关费用。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.4.4 知识产权",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-111",
+        "category": "FORMAT",
+        "text": "2.4.5 响应报价：报价为响应本项目全部工作内容的价格体现，包含完成本项目所需的一切费用；每一项报价内容只允许一个报价，有选择或可调整的报价不予接受；报价按第五章修正后须加盖电子印章确认，未在规定时间内确认的作无效响应处理。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第145行 2.4.5 响应报价",
+            "quote": "2.4.5.响应报价★ 供应商的报价是其响应本项目要求的全部工作内容的价格体现或者结算标准，包括供应商完成本项目所需的一切费用。供应商对采购内容报价要求中的每一项报价内容只允许有一个报价，任何有选择或可调整的报价将不予接受。 按照磋商文件第五章评审办法规定进行价格修正的，修正后的报价经供应商加盖电子印章确认后产生约束力。未在规定时间内确认的，视同供应商不确认，作无效响应处理。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.4.5 响应报价",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-112",
+        "category": "FORMAT",
+        "text": "2.4.7 响应文件的提交：供应商应在提交响应文件截止时间前通过交易系统完成提交并取得回执；未按磋商文件和平台操作规范编制、确认、加密、盖章、提交的响应文件将被拒绝接收；截止时间后不再接受提交；除提交供应商外任何单位和个人不得解密响应文件或调整已提交文件的内容及状态。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第151行 2.4.7 响应文件的提交",
+            "quote": "2.4.7.响应文件的提交★ 一、供应商应当在提交响应文件截止时间前，通过交易系统完成响应文件提交。成功提交响应文件的，将收到成功提交响应文件的回执单。成功提交响应文件的供应商信息在提交响应文件截止时间前，将加密保存。 未按磋商文件和采购平台操作规范编制、确认、加密、盖章和提交的响应文件，将被拒绝接收。 三、除提交响应文件的供应商外，其他任何单位和个人不得解密响应文件或者调整修改已提交响应文件的内容及提交状态。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.4.7 响应文件的提交",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-113",
+        "category": "FORMAT",
+        "text": "2.4.8 响应文件的补充、修改、撤回：提交响应文件截止时间前，可补充、修改或撤回已提交的响应文件；进行补充、修改的应先行撤回后重新提交；撤回后视为未提交过响应文件。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第156行 2.4.8 响应文件的补充、修改、撤回",
+            "quote": "2.4.8.响应文件的补充、修改、撤回★ 提交响应文件截止时间前，成功提交响应文件的供应商，可以补充、修改或者撤回已提交的响应文件；进行补充、修改的，应当先行撤回已提交的响应文件，补充、修改后重新提交。 供应商响应文件撤回后，视为未提交过响应文件。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.4.8 响应文件的补充、修改、撤回",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-114",
+        "category": "FORMAT",
+        "text": "2.5.1.2 解密响应文件：提交响应文件截止时间后由代理机构启动解密程序，解密时间为30分钟；供应商须在规定解密时间内使用加密响应文件的数字证书完成解密，未按时完成解密（因平台系统故障导致者除外）按无效响应处理。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第163行 2.5.1.2 解密响应文件",
+            "quote": "2.5.1.2.解密响应文件★ 提交响应文件截止时间后，成功提交响应文件的供应商符合磋商文件规定数量的，代理机构将启动响应文件解密程序，解密时间为 30 分钟；供应商应在规定的解密时间内，使用加密响应文件的数字证书进行响应文件解密。除因平台系统故障导致供应商未按时完成解密外，供应商未在规定的解密时间内完成解密的，按无效响应处理。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.5.1.2 解密响应文件",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-115",
+        "category": "QUALIFICATION",
+        "text": "2.6.3 合同分包和转包：本项目不允许合同分包；严禁成交供应商将本项目合同转包，转包将依法追究法律责任。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第185行 2.6.3 合同分包和转包",
+            "quote": "2.6.3.合同分包和转包★ 2.6.3.1.合同分包 本项目不允许合同分包。 2.6.3.2.合同转包 一、严禁成交供应商将本项目合同转包。 二、成交供应商将合同转包的，将依法追究法律责任。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.6.3 合同分包和转包",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-116",
+        "category": "QUALIFICATION",
+        "text": "2.7.2 供应商不得具有的情形：供应商参加磋商不得具有磋商文件2.7.2条所列情形（含视为串通响应、提供虚假材料等），具体情形以该条正文为准；存在所列情形的按无效响应处理。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第228行 2.7.2 供应商不得具有的情形",
+            "quote": "2.7.2.供应商不得具有的情形★ 供应商参加磋商不得有下列情形："
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "2.7.2 供应商不得具有的情形",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-117",
+        "category": "FORMAT",
+        "text": "★注 响应产品品牌与规格型号：本采购包涉及采购货物的，供应商响应产品应当明确品牌和规格型号并指向唯一产品；不能指向唯一产品的，应通过报价表唯一产品说明栏补充说明。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第328行 ★注 响应产品品牌与规格型号",
+            "quote": "★注：本采购包涉及采购货物的，供应商响应产品应当明确品牌和规格型号并指向唯一产品，不能指向唯一产品的，应通过报价表唯一产品说明栏补充说明。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "★注 响应产品品牌与规格型号",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-118",
+        "category": "FORMAT",
+        "text": "★注 进口产品响应限制：不涉及采购进口产品时，供应商不得提供进口产品进行响应；涉及采购进口产品时，如国产产品满足采购需求，也可提供国产产品进行响应。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第338行 ★注 进口产品响应限制",
+            "quote": "★注：不涉及采购进口产品时，供应商不得提供进口产品进行响应；涉及采购进口产品时，如国产产品满足采购需求，也可提供国产产品进行响应。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "★注 进口产品响应限制",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-119",
+        "category": "QUALIFICATION",
+        "text": "★注 强制采购节能产品认证：响应产品属于《节能产品政府采购品目清单》中政府强制采购产品的，须提供由国家确定的认证机构出具、处于有效期内的节能产品认证证书原件扫描件，或全国认证认可信息公共服务平台认证信息截图，否则作无效响应处理。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第343行 ★注 强制采购节能产品认证",
+            "quote": "★注：响应产品属于《节能产品政府采购品目清单》中政府强制采购的产品，供应商应当提供由国家确定的认证机构出具的、处于有效期之内的节能产品认证证书的原件扫描件或“全国认证认可信息公共服务平台”（http://cx.cnca.cn）的认证信息截图，否则作无效响应处理。具体要求详见第五章符合性审查表。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "★注 强制采购节能产品认证",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [
+          "证书原件/复印件"
+        ],
+        "cross_refs": []
+      },
+      {
+        "requirement_id": "REQ-120",
+        "category": "DELIVERY",
+        "text": "九、教材出版（章节级实质性要求）：教材须申领正规电子ISBN书号，严格执行出版三审三校、意识形态与版权全审核流程；符合国家数字教材制作与封装标准，内嵌微课、习题、图谱等配套数字资源，音视频画质音质达标并兼容主流教学平台；保障著作权清晰无侵权，提供标准化数字交付文件与上架运维服务，配合校方完成教材迭代更新，交付完整出版档案。",
+        "mandatory": true,
+        "score": null,
+        "evidence_refs": [
+          {
+            "source_id": "SRC-001",
+            "locator": "第455行 九、教材出版（章节级实质性要求）",
+            "quote": "★九、教材出版 教材须申领正规电子 ISBN 书号，严格执行出版三审三校、意识形态与版权全审核流程。教材符合国家数字教材制作、封装标准，内嵌微课、习题、图谱等配套数字资源，音视频画质音质达标、兼容主流教学平台。保障著作权清晰无侵权，提供标准化数字交付文件、上架运维服务，配合校方完成教材迭代更新，交付完整出版档案与合规检测材料，按期完成全部出版流程。（需提供承诺函并加盖供应商公章）。"
+          }
+        ],
+        "severity_symbol": "★",
+        "deduction_per_item": null,
+        "source_chapter": "九、教材出版（章节级实质性要求）",
+        "deliverable_group": null,
+        "quantity_semantics": null,
+        "verification_means": [],
+        "cross_refs": []
+      }
+    ],
+    "scoring_pool": {
+      "declared_total": 48.0,
+      "computed_total": 48.0,
+      "closed": true,
+      "formula": "12×1.5 + 10×0.5 + 3×5.0 + 25×0.4 = 48.0",
+      "items": [
+        {
+          "symbol": "▲",
+          "count": 12,
+          "deduction_per_item": 1.5,
+          "subtotal": 18.0,
+          "evidence_refs": [
+            {
+              "source_id": "SRC-001",
+              "locator": "第811行 5.4.2 评审细则及标准",
+              "quote": "1.完全满足磋商文件第三章3.2.技术要求2服务要求与制作标准中技术参数与性能指标内容得48分。标注“★”为本项目实质性参数，不允许有负偏离。每有一项▲内容不满足扣1.5分（共12条），每有一项●内容不满足扣0.5分（共10条），每有一项█内容不满足扣5分（共3条），每有一项未标注符号的内容不满足扣0.4分（共25条）。（以最小单位序号（1）、（2）、（3）……为准。 注: （1）供应商应准备充分，现场演示可能用到的平台、设备、网络环境均由供应商自行准备，因网络、设备而导致的现场功能演示失败或出错均由供应商自行承担后果。 2.供应商应用真实运行系统平台演示，供应商须提供一体化平台，共享课程运行……"
+            }
+          ]
+        },
+        {
+          "symbol": "●",
+          "count": 10,
+          "deduction_per_item": 0.5,
+          "subtotal": 5.0,
+          "evidence_refs": [
+            {
+              "source_id": "SRC-001",
+              "locator": "第811行 5.4.2 评审细则及标准",
+              "quote": "1.完全满足磋商文件第三章3.2.技术要求2服务要求与制作标准中技术参数与性能指标内容得48分。标注“★”为本项目实质性参数，不允许有负偏离。每有一项▲内容不满足扣1.5分（共12条），每有一项●内容不满足扣0.5分（共10条），每有一项█内容不满足扣5分（共3条），每有一项未标注符号的内容不满足扣0.4分（共25条）。（以最小单位序号（1）、（2）、（3）……为准。 注: （1）供应商应准备充分，现场演示可能用到的平台、设备、网络环境均由供应商自行准备，因网络、设备而导致的现场功能演示失败或出错均由供应商自行承担后果。 2.供应商应用真实运行系统平台演示，供应商须提供一体化平台，共享课程运行……"
+            }
+          ]
+        },
+        {
+          "symbol": "█",
+          "count": 3,
+          "deduction_per_item": 5.0,
+          "subtotal": 15.0,
+          "evidence_refs": [
+            {
+              "source_id": "SRC-001",
+              "locator": "第811行 5.4.2 评审细则及标准",
+              "quote": "1.完全满足磋商文件第三章3.2.技术要求2服务要求与制作标准中技术参数与性能指标内容得48分。标注“★”为本项目实质性参数，不允许有负偏离。每有一项▲内容不满足扣1.5分（共12条），每有一项●内容不满足扣0.5分（共10条），每有一项█内容不满足扣5分（共3条），每有一项未标注符号的内容不满足扣0.4分（共25条）。（以最小单位序号（1）、（2）、（3）……为准。 注: （1）供应商应准备充分，现场演示可能用到的平台、设备、网络环境均由供应商自行准备，因网络、设备而导致的现场功能演示失败或出错均由供应商自行承担后果。 2.供应商应用真实运行系统平台演示，供应商须提供一体化平台，共享课程运行……"
+            }
+          ]
+        },
+        {
+          "symbol": "（无符号）",
+          "count": 25,
+          "deduction_per_item": 0.4,
+          "subtotal": 10.0,
+          "evidence_refs": [
+            {
+              "source_id": "SRC-001",
+              "locator": "第811行 5.4.2 评审细则及标准",
+              "quote": "1.完全满足磋商文件第三章3.2.技术要求2服务要求与制作标准中技术参数与性能指标内容得48分。标注“★”为本项目实质性参数，不允许有负偏离。每有一项▲内容不满足扣1.5分（共12条），每有一项●内容不满足扣0.5分（共10条），每有一项█内容不满足扣5分（共3条），每有一项未标注符号的内容不满足扣0.4分（共25条）。（以最小单位序号（1）、（2）、（3）……为准。 注: （1）供应商应准备充分，现场演示可能用到的平台、设备、网络环境均由供应商自行准备，因网络、设备而导致的现场功能演示失败或出错均由供应商自行承担后果。 2.供应商应用真实运行系统平台演示，供应商须提供一体化平台，共享课程运行……"
+            }
+          ]
+        }
+      ]
+    },
+    "symbol_reconciliation": {
+      "declared": {
+        "▲": 12,
+        "●": 10,
+        "█": 3,
+        "（无符号）": 25
+      },
+      "actual": {
+        "★": 27,
+        "▲": 12,
+        "█": 3,
+        "●": 10
+      },
+      "full_document_scan": {
+        "★": 30,
+        "▲": 13,
+        "█": 4,
+        "●": 11
+      },
+      "anomalies": [
+        {
+          "locator": "第445行（第三章 八、虚拟仿真资源运行要求 序号(2)）docx；PDF 第22页",
+          "message": "序号(1)~(11)连续共11条，带●符号的仅10条；序号(2)『平台需满足三级信息安全等级保护资质要求，并提供三级等保备案证明』漏标符号。评审表声明『每有一项●内容不满足扣0.5分（共10条）』与文件实际●符号数一致，确认为文件自身缺陷而非抽取遗漏。该条实为准入级资质，本次按最严假设（视同实质性要求）准备并保留书面澄清。"
+        },
+        {
+          "locator": "第624行（5.4.2 评审细则及标准 技术及服务指标）",
+          "message": "该行是评分规则描述句，单行内同时出现 ★▲●█ 四种符号，导致全文件符号扫描数（{'★': 30, '▲': 13, '█': 4, '●': 11}）各比实际条款数多1。因此本 skill 不做『源计数 == 需求计数』的朴素对账，改为逐行台账（coverage_ledger）——该行按 EXEMPT 登记并注明其分值池证据作用。"
+        },
+        {
+          "locator": "全文件",
+          "message": "文件明确规定『如内容有不一致的，以pdf格式内容为准』；docx 与 pdf 抽取的符号统计一致（{'★': 30, '▲': 13, '█': 4, '●': 11}），行数因断行规则不同而有差异。本表 locator 统一指向包内 tender_raw.docx.txt 的行号。"
+        }
+      ],
+      "coverage_ledger": {
+        "source": "source_fingerprint.json → files[tag=docx].symbol_lines",
+        "source_counts": {
+          "★": 30,
+          "▲": 13,
+          "█": 4,
+          "●": 11
+        },
+        "dispositions": [
+          "COVERED",
+          "EXEMPT"
+        ],
+        "rule": "源文本每一处符号出现位置都必须有一条台账记录；COVERED 须指向 severity_symbol 相同的需求，EXEMPT 须给出理由。",
+        "entries": [
+          {
+            "symbol": "★",
+            "source_line": 66,
+            "raw_excerpt": "1\t采购预算及最高限价★\t本项目各包采购预算金额如下：",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-104",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 70,
+            "raw_excerpt": "3\t是否接受联合体★\t采购包1：不接受联合体",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-010",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 80,
+            "raw_excerpt": "6\t投标（响应）保证金★\t本项目不收取投标（响应）保证金。",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-105",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 81,
+            "raw_excerpt": "7\t履约保证金★\t采购包1：收取",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-106",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 90,
+            "raw_excerpt": "8\t响应有效期★\t提交响应文件的截止之日起不少于 90 天。响应文件未明确响应有效期或者少于前述规定天数的，其响应文件按无效处理。",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-103",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 91,
+            "raw_excerpt": "9\t代理服务费★\t本项目收取代理服务费",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-107",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 104,
+            "raw_excerpt": "15\t实质性要求\t本磋商文件中“★”要求为实质性要求。供应商应当按照第五章评审程序中的符合性审查规定，在响应文件中进行实质性响应，否则作无效响应处理。",
+            "disposition": "EXEMPT",
+            "requirement_id": null,
+            "reason": "第2.1条附表序号15『实质性要求』的定义性表述，说明★为实质性要求及未实质响应的后果，属解释性文字，不构成独立可评审条款。"
+          },
+          {
+            "symbol": "★",
+            "source_line": 137,
+            "raw_excerpt": "2.4.2.计量单位★",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-108",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 139,
+            "raw_excerpt": "2.4.3.响应货币★",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-109",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 141,
+            "raw_excerpt": "2.4.4.知识产权★",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-110",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 145,
+            "raw_excerpt": "2.4.5.响应报价★",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-111",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 148,
+            "raw_excerpt": "2.4.6.响应文件的编制、签章和加密★",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-102",
+            "reason": "★标记位于第148行标题，实质性要求正文见第149行，由 REQ-102 承载。"
+          },
+          {
+            "symbol": "★",
+            "source_line": 151,
+            "raw_excerpt": "2.4.7.响应文件的提交★",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-112",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 156,
+            "raw_excerpt": "2.4.8.响应文件的补充、修改、撤回★",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-113",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 163,
+            "raw_excerpt": "2.5.1.2.解密响应文件★",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-114",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 185,
+            "raw_excerpt": "2.6.3.合同分包和转包★",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-115",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 228,
+            "raw_excerpt": "2.7.2.供应商不得具有的情形★",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-116",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 315,
+            "raw_excerpt": "（注：本章的技术、服务及其他要求中，带“★”的要求为实质性要求。采购人、代理机构应当根据项目实际要求合理设定，并在第五章符合性审查中明确响应要求。）",
+            "disposition": "EXEMPT",
+            "requirement_id": null,
+            "reason": "第三章章节注，说明本章带★的要求为实质性要求并要求在第五章符合性审查中明确，属解释性文字，不构成独立条款。"
+          },
+          {
+            "symbol": "★",
+            "source_line": 328,
+            "raw_excerpt": "★注：本采购包涉及采购货物的，供应商响应产品应当明确品牌和规格型号并指向唯一产品，不能指向唯一产品的，应通过报价表唯一产品说明栏补充说明。",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-117",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 338,
+            "raw_excerpt": "★注：不涉及采购进口产品时，供应商不得提供进口产品进行响应；涉及采购进口产品时，如国产产品满足采购需求，也可提供国产产品进行响应。",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-118",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 343,
+            "raw_excerpt": "★注：响应产品属于《节能产品政府采购品目清单》中政府强制采购的产品，供应商应当提供由国家确定的认证机构出具的、处于有效期之内的节能产品认证证书的原件扫描件或“全国认证认可信息公共服务平台”（http://cx.cnca.cn）的认证信息截图",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-119",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 387,
+            "raw_excerpt": "★（3）供应商承诺应按照《2022年职业教育在线精品课程观测指标》的具体要求制作视频，并提供全套符合申报平台技术标准的文件格式。验收时，采购人将依据《2022年职业教育在线精品课程观测指标》中的量化指标（如视频时长、分辨率、知识点覆盖率、交",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-037",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 455,
+            "raw_excerpt": "★九、教材出版",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-120",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 465,
+            "raw_excerpt": "1\t★\t服务期限\t自合同签订之日起300日",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-084",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 466,
+            "raw_excerpt": "2\t★\t服务地点\t四川铁道职业学院成都校区",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-085",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 467,
+            "raw_excerpt": "3\t★\t验收、交付标准和方法\t（1）履约验收主体：四川铁道职业学院。 （2）履约验收时间：供应商提出验收申请之日起10日内组织验收。 （3）验收组织方式：采购人组织本单位人员自行验收。 （4）履约验收程序：按磋商文件、响应文件及合同约定验收",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-086",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 468,
+            "raw_excerpt": "4\t★\t支付方式\t分期付款",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-087",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 469,
+            "raw_excerpt": "5\t★\t付款进度安排\t1付款条件：合同签订之日起，达到该付款条件起30个工作日内，支付合同总金额的40.00%",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-088",
+            "reason": "★标记位于第469行标题，实质性要求正文见第470行，由 REQ-088 承载。"
+          },
+          {
+            "symbol": "★",
+            "source_line": 471,
+            "raw_excerpt": "6\t★\t违约责任与解决争议的方法\t违约责任：①采购人及供应商双方必须遵守本合同并执行合同中的各项规定，保证本合同的正常履行。 ②如因供应商工作人员在履行职务过程中的的疏忽、失职、过错等故意或者过失原因给采购人造成损失或侵害，包括但不限于采购",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-089",
+            "reason": null
+          },
+          {
+            "symbol": "★",
+            "source_line": 624,
+            "raw_excerpt": "详细评审\t技术及服务指标\t1.完全满足磋商文件第三章3.2.技术要求2服务要求与制作标准中技术参数与性能指标内容得48分。标注“★”为本项目实质性参数，不允许有负偏离。每有一项▲内容不满足扣1.5分（共12条），每有一项●内容不满足扣0.5",
+            "disposition": "EXEMPT",
+            "requirement_id": null,
+            "reason": "第五章评审办法『技术及服务指标』评分描述句，其中的★▲●█为对符号扣分规则的引用，非条款本体；该行是分值池的唯一证据来源（见 scoring_pool.items[].evidence_refs）。"
+          },
+          {
+            "symbol": "▲",
+            "source_line": 399,
+            "raw_excerpt": "▲（1）系统支持设置课程能力目标，课程能力目标包含课程目标描述、课程目标拆解、课程目标详情。其中课程目标拆解课设置主能力目标、子能力目标、关联知识点、覆盖问题等，并通过系统统计每个能力目标的知识点覆盖率等，同时在一门课程中能力目标课数量设置",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-042",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 402,
+            "raw_excerpt": "▲（2）为推进学院新形态数字化教材的建设，供应商所提供的知识图谱建设服务需支持新形态教材建设。供应商需提供已制作完成、出版的新形态教材与知识图谱融合案例至少4个，新形态教材需包含可视化章节知识地图、数字教材知识口令、教材整体知识图谱等内容，",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-044",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 404,
+            "raw_excerpt": "▲（1）支持 AI 知识库资源解析与应用：AI 知识库内的资源经解析后，可被课程专属 AI 助教和智能体利用，借助先进解析技术，确保资源能够被精准处理，协助AI智能体生成更精准的回答，在回答时，答案从知识库中进行回复。（提供所投真实产品的功",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-045",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 407,
+            "raw_excerpt": "▲（1）工具箱应能为师生提供丰富实用的AI工具数量不少于60种，包括辅助备课、辅助出题与评估、辅助资源与科研等类型。具体应具备AI生成教案、AI出题、AI批阅、AI自动出卷、AI生成思政案例、AI创作PPT、AI文档问答、AI写作助手、AI",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-046",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 410,
+            "raw_excerpt": "▲（4）系统支持筛选搜索结果来源，资源筛选来源包含课程、知乎、电子书、知网、百科、B站、切片模型、国家法律法规、北大法宝、mooc平台、百度知道、资讯、题库内容。（提供所投真实产品的功能截图证明材料并加盖供应商公章）",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-049",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 411,
+            "raw_excerpt": "▲（5）支持AI出题功能支持根据知识点及参考内容两种出题模式。根据知识点出题模式支持教师针对教学课程图谱中选择指定知识点，系统参考知识点教学内容生成与知识点相关的题目，该出题模式支持普通模式及知识库模式两种模式；根据参考内容出题模式支持自定",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-050",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 413,
+            "raw_excerpt": "▲（1）具备智慧课程运行推广能力，平台中已运行对外推广的智慧课程数量不低于3000门，不包含基于知识融合运行的共享课与翻转课。（提供所投真实产品的功能截图证明材料并加盖供应商公章）",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-051",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 417,
+            "raw_excerpt": "▲（1）支持教师团队自主构建课件库中心，进行私有课件库和课程课件库的分区管理，满足教师课件资源私有保护和公开共享的多元场景需求，支持课件共享范围进一步分层，在发布给教师团队基础上，进一步分享给特定班级学生。（提供所投真实产品的功能截图证明材",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-054",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 420,
+            "raw_excerpt": "▲（1）一键推课：支持老师通过供应商所提供的课程平台APP和小程序两种途径分享课程海报、手机端H5课程主页、课程小程序页面等，让更多学习者学习。供应商提供通过手机端APP分享小程序页面、课程海报的详细操作说明及操作截图。（供应商提供以上对应",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-055",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 429,
+            "raw_excerpt": "▲（1）提供资源运行共享平台，包括学生及教师账号的单点登录、资源理论学习、实验安排、实验操作、实验报告填写与提交、实验批改、实验成绩管理、资源学习情况统计、优秀实验案例展示等。（提供以上九个对应功能截图并加盖公章进行佐证）",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-061",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 430,
+            "raw_excerpt": "▲（2）学生能够通过互联网在线开放共享平台完成整个实验流程，以及协助教师完成实验资源相关的教学工作，协助校方的虚拟仿真资源实现校内外的线上运行管理、虚仿资源整合。（提供共享平台链接、截图、备案信息并加盖公章进行佐证）",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-062",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 431,
+            "raw_excerpt": "▲（3）要求开发的虚拟仿真资源可与校方指定的在线视频课程有机结合，形成理论认知与实际操作相结合的课程内容，提高课程教学和学生的学习效果。（提供对应功能截图并加盖公章进行佐证）",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-063",
+            "reason": null
+          },
+          {
+            "symbol": "▲",
+            "source_line": 624,
+            "raw_excerpt": "详细评审\t技术及服务指标\t1.完全满足磋商文件第三章3.2.技术要求2服务要求与制作标准中技术参数与性能指标内容得48分。标注“★”为本项目实质性参数，不允许有负偏离。每有一项▲内容不满足扣1.5分（共12条），每有一项●内容不满足扣0.5",
+            "disposition": "EXEMPT",
+            "requirement_id": null,
+            "reason": "同第624行：评分规则引用，非▲条款本体；▲条款本体见 REQ-042 等12条。"
+          },
+          {
+            "symbol": "█",
+            "source_line": 425,
+            "raw_excerpt": "█（1）在线开放课程需提供见面课服务，全国直播见面课都需在本校完成，供应商需在本校改造完成一间具有直播见面课功能的直播教室。要能与共享课程直播互动网络完全无缝对接；能与全国高等学校直播互动教室实现直播互动，实现直播互动教学，供应商成交后需根",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-058",
+            "reason": null
+          },
+          {
+            "symbol": "█",
+            "source_line": 426,
+            "raw_excerpt": "█（2）供应商为采购人提供在线精品课程建设、课程推广运行服务后，应保证采购人课程符合职业教育国家在线精品课程各项评审指标。（供应商提供课程评审免密登陆主页网址和与职业教育精品在线课程评审一致的课程数据信息表在平台上的截图并加盖供应商公章。课",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-059",
+            "reason": null
+          },
+          {
+            "symbol": "█",
+            "source_line": 427,
+            "raw_excerpt": "█（3）能支持跨区域开展同步课堂和“跨域同步课堂计划”2.0对口学校和课程的对接服务。建立学校间互动和互访，达成课程、课堂教学一致，联动同步课堂。需要与教育部跨域同步课堂平台对接，将我校优秀慕课共享到课程共建的其他高校，对接受援助的高校授课",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-060",
+            "reason": null
+          },
+          {
+            "symbol": "█",
+            "source_line": 624,
+            "raw_excerpt": "详细评审\t技术及服务指标\t1.完全满足磋商文件第三章3.2.技术要求2服务要求与制作标准中技术参数与性能指标内容得48分。标注“★”为本项目实质性参数，不允许有负偏离。每有一项▲内容不满足扣1.5分（共12条），每有一项●内容不满足扣0.5",
+            "disposition": "EXEMPT",
+            "requirement_id": null,
+            "reason": "同第624行：评分规则引用，非█条款本体；█条款本体见 REQ-058~060 共3条。"
+          },
+          {
+            "symbol": "●",
+            "source_line": 444,
+            "raw_excerpt": "●（1）要求运行平台附带虚仿课程资源库，需具备至少100 门以上的虚拟仿真课程资源库，方便校内学生随时加入学习更多感兴趣虚仿课程，且资源库随时添加更新资源，不限制虚仿资源门数，且需提供 3D 模型资源库，提供有在线预览功能的模型，提供至少 ",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-073",
+            "reason": null
+          },
+          {
+            "symbol": "●",
+            "source_line": 446,
+            "raw_excerpt": "●（3）为更好教学，要求现场演示虚拟仿真内容可与共享课进行联动，即可通过虚拟仿真项目跳转到对应的共享课中，也可从共享课跳转到对应的虚拟仿真资源中，形成理论与实际操作的结合，以此来提高教学效果。",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-075",
+            "reason": null
+          },
+          {
+            "symbol": "●",
+            "source_line": 447,
+            "raw_excerpt": "●（4）要求现场演示虚拟仿真资源与智慧课程的深度融合，即虚拟仿真资源能够以实验图谱的形式在智慧课程主页中进行呈现，用户通过实验图谱可明确了解到每个实验的实验步骤、实验子阶段、阶段及考核占比、相关知识点，并且可通过实验图谱快速进入对应的虚拟仿",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-076",
+            "reason": null
+          },
+          {
+            "symbol": "●",
+            "source_line": 448,
+            "raw_excerpt": "●（5）要求虚拟仿真运行平台支持“一步生成课程”，虚仿资源上线后自动生成1门可运行的翻转课，无需老师自行建设，同步实验资源，一键生成实验任务；",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-077",
+            "reason": null
+          },
+          {
+            "symbol": "●",
+            "source_line": 449,
+            "raw_excerpt": "●（6）要求现场逐一演示虚拟仿真运行平台具备新建实验功能,可进行基本信息、实验资源、实验设置，其中基本信息内容包括实验标题、实验描述内容；实验资源支持进行我的虚仿实验添加、虚仿资源库添加、虚仿实验链接添加、线下实验任务添加；实验设置支持关联",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-078",
+            "reason": null
+          },
+          {
+            "symbol": "●",
+            "source_line": 450,
+            "raw_excerpt": "●（7）要求虚拟仿真系统具备AI助教功能，可调用AI 助教进行问题咨询，AI 助教与虚拟仿真系统能进行深度融合，即可在主页进行AI助教功能，也可在虚仿操作过程中进行AI助教功能的使用。",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-079",
+            "reason": null
+          },
+          {
+            "symbol": "●",
+            "source_line": 451,
+            "raw_excerpt": "●（8）要求演示定制化虚拟仿真主页功能，支持UI界面定制化开发、AI助教形象定制化，提供不少于三门虚仿资源主界面和AI助教形象的定制案例。",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-080",
+            "reason": null
+          },
+          {
+            "symbol": "●",
+            "source_line": 452,
+            "raw_excerpt": "●（9）要求具有学习记录管理功能，学生练习情况，按照班级列出平时训练情况汇总。全部实验日志，按时间排显示学生的实验详情，支持查看实验报告。",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-081",
+            "reason": null
+          },
+          {
+            "symbol": "●",
+            "source_line": 453,
+            "raw_excerpt": "●（10）要求演示虚拟仿真资源都有独立的课程页，并可根据老师在后台设置的内容，展示实验对应的基本信息，主要包括：项目介绍、师资介绍、实验指南、实验资源、考核要求、优秀案例展示、学习记录、数据分析等。",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-082",
+            "reason": null
+          },
+          {
+            "symbol": "●",
+            "source_line": 454,
+            "raw_excerpt": "●（11）要求演示问答论坛功能，支持对实验进行讨论，发表问题，并可以对学生讨论进行回答和管理，设置精华和置顶操作。",
+            "disposition": "COVERED",
+            "requirement_id": "REQ-083",
+            "reason": null
+          },
+          {
+            "symbol": "●",
+            "source_line": 624,
+            "raw_excerpt": "详细评审\t技术及服务指标\t1.完全满足磋商文件第三章3.2.技术要求2服务要求与制作标准中技术参数与性能指标内容得48分。标注“★”为本项目实质性参数，不允许有负偏离。每有一项▲内容不满足扣1.5分（共12条），每有一项●内容不满足扣0.5",
+            "disposition": "EXEMPT",
+            "requirement_id": null,
+            "reason": "同第624行：评分规则引用，非●条款本体；●条款本体见 REQ-073~083 共10条。"
+          }
+        ]
+      }
+    },
+    "template_requirements": [
+      "REQ-095",
+      "REQ-096",
+      "REQ-097",
+      "REQ-098",
+      "REQ-099",
+      "REQ-100",
+      "REQ-101",
+      "REQ-102",
+      "REQ-103"
+    ],
+    "unread_sections": [
+      "第七章 拟签订采购合同文本（第893行起，本次未逐条拆解）",
+      "第六章 附件表单原件（响应文件封面、投标响应函、声明函等，仅有名称无正文）"
+    ]
+  },
+  "next_actions": [
+    {
+      "action": "人工抽查 coverage_ledger 中 COVERED 映射（≥30%）",
+      "owner": "投标负责人"
+    },
+    {
+      "action": "向代理机构书面澄清三级等保条款的扣分归属（SYMBOL_GAP）",
+      "owner": "投标负责人"
+    },
+    {
+      "action": "从四川政府采购网采购公告获取响应文件递交截止时间并回填 deadline",
+      "owner": "投标负责人"
+    },
+    {
+      "action": "以 PDF 全文复核高分值条款文字后交 S2 核对资料",
+      "owner": "投标负责人"
+    }
+  ]
+}

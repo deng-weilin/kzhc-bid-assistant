@@ -1,0 +1,10 @@
+# 本仓库多处使用 sha256 校验文件完整性（PACKAGE_MANIFEST.json、source_fingerprint.json），
+# 必须保证任何平台 clone 出来的字节与提交时完全一致，因此统一以 LF 存储与检出。
+* text=auto eol=lf
+
+# 二进制文件不做任何处理
+*.docx binary
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.zip  binary
